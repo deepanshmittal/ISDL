@@ -53,6 +53,10 @@ def add_inventory(request):
         return redirect('login')
 
 
+def remove_inventory(request):
+    return render(request, 'IM-remove-inventory.html')
+
+
 @login_required(login_url='login')
 def register_item(request):
     if getRole(request) == "IM":
@@ -100,19 +104,19 @@ def request_purchase(request):
                     messages.error(request, "No Items added to List")
                     return redirect('request-purchase')
                 itemList = json.loads(itemList.replace("'", '"'))
-                # try:
-                with transaction.atomic():
-                    bill = Bill()
-                    bill.save()
-                    # print(itemList)
-                    for (ItemCode, Quantity) in itemList.items():
-                        # print(ItemCode, Quantity, sep=":")
-                        ItemList(Bill=bill, ItemCode=Item.objects.get(ItemCode=ItemCode), Quantity=Quantity).save()
-                    messages.info(request, f"{bill.RegNo}")
-                    return redirect('request-purchase-quotations')
-                # except:
-                #     messages.error(request, "Some Error Occurred! Please Try Again")
-                #     return render(request, 'IM-request-purchase.html', {'itemList': itemList})
+                try:
+                    with transaction.atomic():
+                        bill = Bill()
+                        bill.save()
+                        # print(itemList)
+                        for (ItemCode, Quantity) in itemList.items():
+                            # print(ItemCode, Quantity, sep=":")
+                            ItemList(Bill=bill, ItemCode=Item.objects.get(ItemCode=ItemCode), Quantity=Quantity).save()
+                        messages.info(request, f"{bill.RegNo}")
+                        return redirect('request-purchase-quotations')
+                except:
+                    messages.error(request, "Some Error Occurred! Please Try Again")
+                    return render(request, 'IM-request-purchase.html', {'itemList': itemList})
         return render(request, 'IM-request-purchase.html')
     else:
         return redirect('login')
