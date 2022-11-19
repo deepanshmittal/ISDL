@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1, width=device-width"/>
+    <title></title>
+    <meta name="description" content=""/>
+
+    <link rel="stylesheet" href="{% static 'css/global.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/MGIM-inventory.css' %}"/>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"/>
+</head>
+
+<body>
+<div class="mgim-invloc-div">
+    <!-- <div class="bg-div8"></div> -->
+    <div class="rectangle-div123"></div>
+    <div class="rectangle-div124"></div>
+    <div class="user-det-div11">
+        <div class="frame-div3">
+            <div class="purchase-officer-div6">Main Gate Inv Manager</div>
+        </div>
+        <div class="user-div11">
+            <img class="ellipse-icon11" alt="" src="{% static 'img/login-bg.svg' %}"/>
+            <img class="login-1-icon11" alt="" src="{% static 'img/login.png' %}"/>
+        </div>
+    </div>
+    <b class="lnmiit-inventory-management-sy11">LNMIIT Inventory Management System</b>
+    <div class="rectangle-div125"></div>
+    <button class="logout-button11" id="logOutButton">
+        <div class="rectangle-div126"></div>
+        <div class="log-out-div11">Log Out</div>
+        <img class="logout-1-icon11" alt="" src="{% static 'img/logout.png' %}"/>
+    </button>
+    <div class="line-div9"></div>
+    <button class="button-16" id="button1" data-animate-on-scroll>
+        <div class="rectangle-div127" data-animate-on-scroll></div>
+        <div class="entry-details-div5">Entry Details</div>
+    </button>
+    <button class="button-36" data-animate-on-scroll id="inventoryLocating">
+        <div class="rectangle-div128" data-animate-on-scroll></div>
+        <div class="inventory-location-div5">Inventory Location</div>
+    </button>
+    <button class="button-26" id="button2" data-animate-on-scroll>
+        <div class="rectangle-div127" data-animate-on-scroll></div>
+        <div class="exit-details-div4">Exit Details</div>
+    </button>
+    <div class="scroll">
+        <table>
+            <tr>
+                <th>Bluiding ID</th>
+                <th>Floor</th>
+                <th>Room No.</th>
+                <th>Item Code</th>
+                <th>Item No.</th>
+            </tr>
+            {% for inventory_obj in inventory %}
+                <tr>
+                    <td>{{ inventory_obj.BuildingID }}</td>
+                    <td>{{ inventory_obj.Floor }}</td>
+                    <td>{{ inventory_obj.Room }}</td>
+                    <td>{{ inventory_obj.ItemCode.ItemCode }}</td>
+                    <td>{{ inventory_obj.ItemNumber }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+<script src={% static 'js/MGIM-inventory.js' %}></script>
+</body>
+</html>

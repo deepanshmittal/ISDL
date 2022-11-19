@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+.bg-div {
+  position: absolute;
+  top: 789px;
+  left: 1745px;
+  background: linear-gradient(-90deg, #60adf2, #50f004);
+  width: 2523px;
+  height: 1103px;
+  transform: rotate(180deg);
+  transform-origin: 0 0;
+}
+.item-added-successfully {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.item-id-lnm-bh-ii {
+  margin: 0;
+}
+.item-added-successfully-with {
+  position: absolute;
+  top: 148px;
+  left: 89px;
+  display: inline-block;
+}
+.pop-up-div {
+  position: relative;
+  background-color: var(--color-white);
+  width: 968px;
+  height: 475px;
+  overflow: hidden;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: center;
+  font-size: var(--font-size-3xl);
+  color: var(--color-black);
+  font-family: var(--font-poppins);
+}

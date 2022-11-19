@@ -1,0 +1,160 @@
+
+
+@keyframes flip-horizontal-bottom {
+  0% {
+    transform: rotateX(0);
+  }
+  to {
+    transform: rotateX(-180deg);
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  margin: 0;
+  line-height: normal;
+}
+.bg-div1 {
+  position: absolute;
+  top: 1285px;
+  left: 2481px;
+  background: linear-gradient(-90deg, #60adf2, #50f004);
+  width: 3649px;
+  height: 1595px;
+  transform: rotate(180deg);
+  transform-origin: 0 0;
+}
+.rectangle-div7,
+.rectangle-div8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-gray-200);
+  width: 2028px;
+  height: 66px;
+}
+.rectangle-div8 {
+  border-radius: var(--br-md);
+  background-color: var(--color-white);
+  width: 323px;
+  height: 168px;
+  opacity: 1;
+}
+.rectangle-div8.animate {
+  animation: 1s ease 0s 1 normal forwards flip-horizontal-bottom;
+}
+.main-gate {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.inventory-manager-p {
+  margin: 0;
+}
+.main-gate-inventory-manager {
+  position: absolute;
+  top: 49px;
+  left: 6px;
+  font-size: var(--font-size-2xl);
+  line-height: 110.5%;
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--color-black);
+  text-align: center;
+  display: inline-block;
+}
+.button-3 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 188px;
+  left: 956px;
+  width: 323px;
+  height: 168px;
+  opacity: 0;
+}
+.button-3.animate {
+  animation: 1s ease 0s 1 normal forwards slide-in-top;
+}
+.purchase-officer-div {
+  position: absolute;
+  top: 60px;
+  left: 27px;
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+}
+.button-2 {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 188px;
+  left: 547px;
+  width: 323px;
+  height: 168px;
+  opacity: 0;
+}
+.button-2.animate {
+  animation: 1s ease 0s 1 normal forwards fade-in;
+}
+.button-2,
+.button-2:active {
+  cursor: grab;
+}
+.inventory-manager-div1 {
+  position: absolute;
+  top: 60px;
+  left: 6px;
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+}
+.button-1 {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 188px;
+  left: 155px;
+  width: 323px;
+  height: 168px;
+  opacity: 0;
+}
+.button-1.animate {
+  animation: 1s ease 0s 1 normal forwards fade-in;
+}
+.button-1,
+.button-1:active {
+  cursor: grab;
+}
+.home-div {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+}

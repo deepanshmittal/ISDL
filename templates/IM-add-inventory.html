@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1, width=device-width"/>
+    <title></title>
+    <meta name="description" content=""/>
+
+    <link rel="stylesheet" href="{% static 'css/global.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/IM-add-inventory.css' %}"/>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"/>
+</head>
+
+<body>
+<div class="add-inv-div">
+    <div class="rectangle-div91"></div>
+    <div class="rectangle-div91"></div>
+    <div class="rectangle-div93"></div>
+    <div class="user-det-div9">
+        <div class="inventory-manager-div5">Inventory Manager</div>
+        <div class="user-div9">
+            <img class="ellipse-icon9" alt="" src="{% static 'img/login-bg.svg' %}"/><img class="login-1-icon9" alt=""
+                                                                                          src="{% static 'img/login.png' %}"/>
+        </div>
+    </div>
+    <b class="lnmiit-inventory-management-sy9">LNMIIT Inventory Management System</b>
+    <div class="rectangle-div94"></div>
+    <button class="logout-button9" id="logOutButton">
+        <div class="rectangle-div95"></div>
+        <div class="log-out-div9">Log Out</div>
+        <img class="logout-1-icon9" alt="" src="{% static 'img/logout.png' %}"/>
+    </button>
+    <div class="line-div1"></div>
+    <button class="items-button4" id="itemsButton" data-animate-on-scroll>
+        <div class="rectangle-div96"></div>
+        <div class="items-div4">Items</div>
+    </button>
+    <button class="add-inv-button4" id="addInvButton" data-animate-on-scroll>
+        <div class="rectangle-div97" data-animate-on-scroll></div>
+        <div class="add-inventory-div4">Add Inventory</div>
+    </button>
+    <button class="request-purchase-button4" id="requestPurchaseButton" data-animate-on-scroll>
+        <div class="rectangle-div97" data-animate-on-scroll></div>
+        <div class="request-purchase-div4">Request Purchase</div>
+    </button>
+    <button class="remove-inv-button4" id="removeInvButton" data-animate-on-scroll>
+        <div class="rectangle-div99" data-animate-on-scroll></div>
+        <div class="remove-inventory-div4">Remove Inventory</div>
+    </button>
+    <button class="inv-locating-button4" data-animate-on-scroll id="inventoryLocating">
+        <div class="rectangle-div100"></div>
+        <div class="inventory-locating-div4">Inventory Locating</div>
+    </button>
+    <div class="rectangle-div101"></div>
+    <div class="stock-details-div">Stock Details</div>
+    <div class="scroll">
+        <table>
+            <tr>
+                <th></th>
+                <th>Item Name</th>
+                <th>Item Code</th>
+                <th>Quantity</th>
+
+            </tr>
+            {% for item in items %}
+                <tr>
+                    <td>
+                        <input onclick="getItemCode()" type="radio" class="form-check-input" id="radio_button"
+                               name="optradio" value={{ item.ItemCode }}>
+                        <label class="form-check-label" for="radio2"></label>
+                    </td>
+                    <td>{{ item.Name }}</td>
+                    <td>{{ item.ItemCode }}</td>
+                    <td>{{ item.Quantity }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<div>
+    <form method="POST" class="group-form1">
+        {% csrf_token %}
+        <div class="item-code-div">Item Code:</div>
+        <div class="building-id-div">Building ID:</div>
+        <div class="floor-div">Floor:</div>
+        <div class="room-div">Room:</div>
+        <input class="rectangle-input5" type="text" id="ItemCode" name="ItemCode" readonly required/>
+        <input class="rectangle-input2" type="text" name="BuildingID" maxlength="8" required/>
+        <input class="rectangle-input3" type="number" name="Floor" min="0" max="10" required/>
+        <input class="rectangle-input4" type="text" name="Room" maxlength="8" required/>
+        <button class="submit-button1" id="submitButton">
+            <div class="rectangle-div102"></div>
+            <div class="submit-div">Submit</div>
+        </button>
+    </form>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags %}
+                <script>alert("{{ message }}")</script> {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+
+<script src={% static 'js/IM-add-inventory.js' %}></script>
+
+</body>
+
+</html>

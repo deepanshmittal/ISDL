@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1, width=device-width"/>
+    <title></title>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/PO-request-history.css' %}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"/>
+    <!-- registration no. , quotee , amount , status -->
+</head>
+<body>
+<div class="request-history-div">
+    <div class="rectangle-div7"></div>
+    <div class="rectangle-div8"></div>
+    <div class="user-det-div1">
+        <div class="purchase-officer-div">Purchase Officer</div>
+        <div class="user-div1">
+            <img class="ellipse-icon1" alt="" src={% static 'img/login-bg.svg' %}/><img class="login-1-icon1" alt=""
+                                                                                        src={% static 'img/login.png' %}/>
+        </div>
+    </div>
+    <b class="lnmiit-inventory-management-sy1">LNMIIT Inventory Management System</b>
+    <div class="rectangle-div9"></div>
+    <button class="logout-button1" id="logOutButton">
+        <div class="rectangle-div10"></div>
+        <div class="log-out-div1">Log Out</div>
+        <img class="logout-1-icon1" alt="" src="{% static 'img/logout.png' %}"/>
+    </button>
+    <button class="button-3" id="button3" data-animate-on-scroll>
+        <div class="rectangle-div11" data-animate-on-scroll></div>
+        <div class="request-history-div1">Request History</div>
+    </button>
+    <button class="button-1" id="button1" data-animate-on-scroll>
+        <div class="rectangle-div12" data-animate-on-scroll></div>
+        <div class="pending-requests-div">Pending Requests</div>
+    </button>
+    <button class="button-2" data-animate-on-scroll id="inventoryLocating">
+        <div class="rectangle-div11" data-animate-on-scroll></div>
+        <div class="inventory-location-div">Inventory Location</div>
+    </button>
+    <div class="line-div1"></div>
+    <div class="scroll">
+        <table>
+            <tr>
+                <th>Registration Number</th>
+                <th>Quotee</th>
+                <th>Amount</th>
+                <th>Quotation</th>
+                <th>Status</th>
+                <th>Created On</th>
+            </tr>
+            {% for quotation in quotations %}
+                <tr>
+                    <td>{{ quotation.Bill.RegNo }}</td>
+                    <td>{{ quotation.Quotee }}</td>
+                    <td>{{ quotation.Amount }}</td>
+                    <td><a target="_blank" href={{ quotation.QuotationLink }}>Link</a></td>
+                    <td>{{ quotation.Status }}</td>
+                    <td>{{ quotation.Bill.Date }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<script src={% static 'js/PO-request-history.js' %}></script>
+</body>
+</html>
