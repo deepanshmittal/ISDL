@@ -326,6 +326,8 @@ body {
 .rectangle-input,
 .rectangle-input1 {
   border: 0;
+  padding-left: 10px;
+  font-size: 20px;
   background-color: var(--color-gray-100);
   position: absolute;
   top: 7.3px;

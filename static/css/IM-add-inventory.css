@@ -549,21 +549,21 @@ table {
     margin-right: auto;
     border-collapse: collapse;
     width: 96%;
+    color: black;
+    }
+
+tr {
+    background-color: rgba(217, 217, 217, 0.49);
+    /* font-weight: 100; */
 }
 
 th,
 td {
+
     text-align: left;
     padding: 10px;
-    border: 1px solid #ffffff;
-}
-
-tr:nth-child(even) {
-    background-color: #070606
-}
-
-tr:nth-child(odd) {
-    background-color: #070606
+    border: 1px solid #363636;
+    /* font-weight: 100; */
 }
 
 .scroll {
