@@ -1,35 +1,42 @@
 var logOutButton = document.getElementById("logOutButton");
 if (logOutButton) {
     logOutButton.addEventListener("click", function (e) {
-        window.location.href = "./Home.html";
+        window.location.href = "http://localhost:8000/logout";
     });
 }
 
 var itemsButton = document.getElementById("itemsButton");
 if (itemsButton) {
     itemsButton.addEventListener("click", function (e) {
-        window.location.href = "./AddNewItem.html";
+        window.location.href = "http://localhost:8000/inventory-manager/register-item";
     });
 }
 
 var addInvButton = document.getElementById("addInvButton");
 if (addInvButton) {
     addInvButton.addEventListener("click", function (e) {
-        window.location.href = "./AddInv.html";
+        window.location.href = "http://localhost:8000/inventory-manager/add-inventory";
     });
 }
 
 var requestPurchaseButton = document.getElementById("requestPurchaseButton");
 if (requestPurchaseButton) {
     requestPurchaseButton.addEventListener("click", function (e) {
-        window.location.href = "./RquestPurchase.html";
+        window.location.href = "http://localhost:8000/inventory-manager/request-purchase";
     });
 }
 
 var removeInvButton = document.getElementById("removeInvButton");
 if (removeInvButton) {
     removeInvButton.addEventListener("click", function (e) {
-        window.location.href = "./RemoveInv.html";
+        window.location.href = "http://localhost:8000/inventory-manager/remove-inventory";
+    });
+}
+
+var inventoryLocating = document.getElementById("inventoryLocating");
+if (inventoryLocating) {
+    inventoryLocating.addEventListener("click", function (e) {
+        window.location.href = "http://localhost:8000/inventory-manager";
     });
 }
 var scrollAnimElements = document.querySelectorAll("[data-animate-on-scroll]");
