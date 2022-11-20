@@ -44,7 +44,7 @@
         <div class="group-div">
             <div class="quotation-1-div">Quotation 1:</div>
             <input class="rectangle-input3" name="Quotee1" type="text" required/>
-            <input class="rectangle-input4" type="number" id="Amount1" min="0" required/>
+            <input class="rectangle-input4" type="number" name="Amount1" id="Amount1" min="0" required/>
             <div class="quotee-div">Quotee:</div>
             <div class="amount-div">Amount:</div>
             <input class="rectangle-input5" name="QuotationLink1" type="url" required/>
@@ -53,13 +53,15 @@
         <div class="registeration-no-div">Registeration No.:</div>
         {% if messages %}
             {% for message in messages %}
-                <input class="rectangle-input6" type="text" readonly value="{{ message }}"/>
+                {% if message.tags == 'info' %}
+                    <input class="rectangle-input6" type="text" readonly name="RegNo" value="{{ message }}"/>
+                {% endif %}
             {% endfor %}
         {% endif %}
         <div class="group-div1">
             <div class="quotation-1-div">Quotation 2:</div>
             <input class="rectangle-input3" name="Quotee2" type="text"/>
-            <input class="rectangle-input4" type="number" id="Amount2" min="0"/>
+            <input class="rectangle-input4" type="number" name="Amount2" id="Amount2" min="0"/>
             <div class="quotee-div">Quotee:</div>
             <div class="amount-div">Amount:</div>
             <input class="rectangle-input5" name="QuotationLink2" type="url"/>
@@ -69,7 +71,7 @@
             <div class="quotee-div">Quotee:</div>
             <div class="quotation-1-div">Quotation 3:</div>
             <input class="rectangle-input3" name="Quotee3" type="text"/>
-            <input class="rectangle-input4" type="number" id="Amount3" min="0"/>
+            <input class="rectangle-input4" type="number" name="Amount3" id="Amount3" min="0"/>
             <div class="amount-div">Amount:</div>
             <input class="rectangle-input5" name="QuotationLink3" type="url"/>
             <div class="insert-quotation-link">Insert Quotation link:</div>
@@ -80,7 +82,13 @@
     </form>
 </div>
 <script src={% static 'js/IM-request-purchase-quotations.js' %}></script>
-
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success' or message.tags == 'error' %}
+            <script>alert("{{ message }}")</script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
 </body>
 
 </html>

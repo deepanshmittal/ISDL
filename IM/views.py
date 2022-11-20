@@ -142,6 +142,32 @@ def request_purchase(request):
 def request_purchase_quotations(request):
     if getRole(request) == "IM":
         if request.method == 'POST':
+            data = request.POST
+            RegNo = data.get('RegNo')
+            Quotations = dict()
+            Quotations['Quotation1'] = {'Quotee': data.get('Quotee1'), 'Amount': data.get('Amount1'),
+                                        'Link': data.get('QuotationLink1')}
+            Quotations['Quotation2'] = {'Quotee': data.get('Quotee2'), 'Amount': data.get('Amount2'),
+                                        'Link': data.get('QuotationLink2')}
+            Quotations['Quotation3'] = {'Quotee': data.get('Quotee3'), 'Amount': data.get('Amount3'),
+                                        'Link': data.get('QuotationLink3')}
+            print(Quotations)
+            try:
+                with transaction.atomic():
+                    for quotation in Quotations.values():
+                        print(quotation.values())
+                        if all(x is '' for x in quotation.values()):
+                            continue
+                        elif any(x is '' for x in quotation.values()):
+                            raise Exception()
+                        else:
+                            Quotation(Bill=Bill.objects.get(RegNo=RegNo), QuotationLink=quotation['Link'],
+                                      Quotee=quotation['Quotee'], Amount=quotation['Amount']).save()
+                messages.success(request, "Quotations Successfully sent for Approval")
+            except:
+                messages.error(request, "Incorrect Entries!")
+                messages.info(request, RegNo)
+                return redirect('request-purchase-quotations')
             return redirect('request-purchase')
         return render(request, 'IM-request-purchase-quotations.html')
     else:
