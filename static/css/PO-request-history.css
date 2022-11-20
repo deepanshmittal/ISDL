@@ -311,7 +311,9 @@ td {
     border: 1px solid #363636;
 }
 
-
+.link{
+    color: #0c59c5;
+}
 
 .scroll {
     position: relative;
