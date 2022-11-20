@@ -61,7 +61,7 @@ body {
     top: 0;
     left: calc(50% - 720px);
     background-color: var(--color-gray-200);
-    width: 1440px;
+    /*width: 1440px;*/
     height: 66px;
 }
 
@@ -550,7 +550,11 @@ table {
     border-collapse: collapse;
     width: 96%;
     color: black;
+<<<<<<< HEAD
     }
+=======
+}
+>>>>>>> fdc4fd2768831be186030d60221fd455299585c4
 
 tr {
     background-color: rgba(217, 217, 217, 0.49);
@@ -569,6 +573,6 @@ td {
 .scroll {
     position: relative;
     top: 180px;
-    height: 300px;
+    height: 265px;
     overflow-y: auto;
 }

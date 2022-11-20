@@ -57,24 +57,31 @@
     <div class="rectangle-div17"></div>
     <div class="line-div1"></div>
 
-    <form class="group-form">
-        <form class="group-form1">
-            <div class="item-code-div">Item Code:</div>
-            <div class="item-num-div">Item Num:</div>
-            <input class="rectangle-input" type="text" name="ItemCode" required/>
-            <input class="rectangle-input1" type="number" name="ItemNum" required/>
-        </form>
-        <button class="delete-button">
-            <div class="rectangle-div18"></div>
-            <div class="delete-div">Delete</div>
-        </button>
-        <button class="cancel-button">
-            <div class="rectangle-div18"></div>
-            <div class="clear-div">Clear</div>
-        </button>
+    <form method="POST" class="group-form">
+        {% csrf_token %}
+        {#        <form class="group-form1">#}
+        <div class="item-code-div">Item Code:</div>
+        <div class="item-num-div">Item No.:</div>
+        <input class="rectangle-input" type="text" name="ItemCode" required/>
+        <input class="rectangle-input1" type="number" name="ItemNum" min="1" required/>
+        {#        </form>#}
+        <div class="delete-button">
+            {#            <div class="rectangle-div18"></div>#}
+            <input type="submit" class="delete-div" name="delete" value="Delete">
+        </div>
+        <div class="cancel-button">
+            {#            <div class="rectangle-div18"></div>#}
+            <input type="reset" class="clear-div" name="clear" value="Clear">
+        </div>
     </form>
 </div>
 
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags %}
+            <script>alert("{{ message }}")</script> {% endif %}
+    {% endfor %}
+{% endif %}
 <script src={% static 'js/IM-remove-inventory.js' %}></script>
 
 </body>
