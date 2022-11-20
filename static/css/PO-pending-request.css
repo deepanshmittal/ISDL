@@ -435,7 +435,7 @@ td {
 
 .scroll {
     position: relative;
-    top: 140px;
+    top: 100px;
     height: 300px;
     overflow-y: auto;
 }
