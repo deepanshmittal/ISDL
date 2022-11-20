@@ -365,6 +365,18 @@ body {
 
 .rectangle-input,
 .rectangle-input1 {
+<<<<<<< HEAD
+  border: 0;
+  padding-left: 10px;
+  font-size: 20px;
+  background-color: var(--color-gray-100);
+  position: absolute;
+  top: 7.3px;
+  left: 256.13px;
+  border-radius: var(--br-sm);
+  width: 343.87px;
+  height: 49.61px;
+=======
     border: 0;
     padding-left: 10px;
     font-size: 20px;
@@ -375,6 +387,7 @@ body {
     border-radius: var(--br-sm);
     width: 343.87px;
     height: 49.61px;
+>>>>>>> fdc4fd2768831be186030d60221fd455299585c4
 }
 
 .rectangle-input1 {

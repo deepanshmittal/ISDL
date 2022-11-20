@@ -550,7 +550,11 @@ table {
     border-collapse: collapse;
     width: 96%;
     color: black;
+<<<<<<< HEAD
+    }
+=======
 }
+>>>>>>> fdc4fd2768831be186030d60221fd455299585c4
 
 tr {
     background-color: rgba(217, 217, 217, 0.49);
