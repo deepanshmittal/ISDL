@@ -488,7 +488,8 @@ table {
     border-collapse: collapse;
     width: 96%;
     color: black;
-    }
+    counter-reset: Serial;
+}
 
 tr {
     background-color: rgba(217, 217, 217, 0.49);

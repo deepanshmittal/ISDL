@@ -429,6 +429,11 @@ body {
     height: 49.61px;
 }
 
+.rectangle-div18, .rectangle-div19 {
+    padding-left: 10px;
+    font-size: 20px;
+}
+
 .rectangle-div18,
 .rectangle-div19,
 .rectangle-div20 {
@@ -529,17 +534,15 @@ body {
     height: 47px;
 }
 
-.rectangle-div18, .rectangle-div19 {
-    font-size: 30px;
-}
-
 table {
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
     width: 96%;
     color: black;
-    }
+    counter-reset: Serial;
+
+}
 
 tr {
     background-color: rgba(217, 217, 217, 0.49);
@@ -553,6 +556,11 @@ td {
     padding: 10px;
     border: 1px solid #363636;
     /* font-weight: 100; */
+}
+
+tr td:first-child:before {
+    counter-increment: Serial; /* Increment the Serial counter */
+    content: "" counter(Serial); /* Display the counter */
 }
 
 .scroll {

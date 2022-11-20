@@ -53,8 +53,24 @@ def add_inventory(request):
         return redirect('login')
 
 
+@login_required(login_url='login')
 def remove_inventory(request):
-    return render(request, 'IM-remove-inventory.html')
+    if getRole(request) == "IM":
+        if request.method == "POST":
+            ItemCode = request.POST.get('ItemCode')
+            ItemNumber = request.POST.get('ItemNum')
+            try:
+                with transaction.atomic():
+                    item_object = Item.objects.get(ItemCode=ItemCode)
+                    Inventory.objects.get(ItemCode=item_object, ItemNumber=ItemNumber).delete()
+                    item_object.Quantity += 1
+                    item_object.save()
+                    messages.success(request, "Item Successfully removed from Inventory")
+            except:
+                messages.error(request, "Some Error occurred !")
+        return render(request, 'IM-remove-inventory.html')
+    else:
+        return redirect('login')
 
 
 @login_required(login_url='login')
