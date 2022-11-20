@@ -486,7 +486,7 @@ body {
     padding: 0;
     background-color: transparent;
     position: absolute;
-    top: 80px;
+    top: 180px;
     left: 855px;
     width: 360px;
     height: 111px;
@@ -562,13 +562,53 @@ td {
 
     text-align: left;
     padding: 10px;
-    border: 1px solid #363636;
+    /* border: 1px solid #363636; */
     /* font-weight: 100; */
 }
+
+tr>th{
+    border-bottom: 1px solid #363636;
+}
+
+tr>th:last-child{
+    border-right: none;
+}
+
+th{
+    border-right: 1px solid #363636;
+}
+
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+tr td{
+    border-right: 1px solid #363636;
+}
+
+tr td:last-child{
+    border-right: none;
+}
+
 
 .scroll {
     position: relative;
     top: 180px;
     height: 265px;
     overflow-y: auto;
+    margin: auto;
+    width:96%;
+    border-radius: 10px;
 }

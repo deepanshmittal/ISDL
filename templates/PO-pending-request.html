@@ -21,7 +21,7 @@
 <div class="pending-req-div">
     <!-- <div class="bg-div1"></div> -->
     <!-- <div class="rectangle-div7"></div> -->
-    <div class="pending-requests-div">Pending Requests</div>
+    <!-- <div class="pending-requests-div">Pending Requests</div> -->
     <div class="rectangle-div8"></div>
     <div class="rectangle-div9"></div>
     <div class="user-det-div1">
@@ -87,3 +87,68 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    width: 100%;
+    color: black;
+    counter-reset: Serial;
+
+}
+
+tr {
+    background-color: rgba(217, 217, 217, 0.49);
+    /* font-weight: 100; */
+}
+
+th,
+td {
+
+    text-align: left;
+    padding: 10px;
+    /*border: 1px solid #363636;*/
+    /*font-weight: 100;*/
+}
+
+th:first-child {
+    border-top-left-radius: 15px;
+}
+
+th:last-child {
+    border-top-right-radius: 15px;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
+
+tr td:first-child:before {
+    counter-increment: Serial; /* Increment the Serial counter */
+    content: "" counter(Serial); /* Display the counter */
+}
+
+.scroll {
+    /*border: 0px solid black;*/
+    border-radius: 15px;
+    position: relative;
+    top: 180px;
+    margin: auto;
+    width: 96%;
+    height: 300px;
+    overflow-y: auto;
+}

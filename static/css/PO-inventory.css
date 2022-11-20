@@ -297,13 +297,35 @@ td {
 
     text-align: left;
     padding: 10px;
-    border: 1px solid #363636;
+    /* border: 1px solid #363636; */
     /* font-weight: 100; */
+}
+
+tr>th{
+    border-bottom: 1px solid #363636;  
+}
+
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
 }
 
 
 .scroll {
     position: relative;
+    margin: auto;
+    border-radius: 10px;
     top: 140px;
     height: 642px;
     overflow-y: auto;
