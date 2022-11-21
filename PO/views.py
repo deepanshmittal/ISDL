@@ -35,13 +35,13 @@ def pending_request(request):
         return redirect('login')
 
 
-# @login_required(login_url='login')
-# def pending_request_show_quotation(request):
-#     if getRole(request) == "PO":
-#         if request.method == "POST":
-#             RegNo = request.POST.get('RegNo')
-#     else:
-#         return redirect('login')
+@login_required(login_url='login')
+def pending_request_show_quotation(request):
+    if getRole(request) == "PO":
+        if request.method == "POST":
+            RegNo = request.POST.get('RegNo')
+    else:
+        return redirect('login')
 
 
 @login_required(login_url='login')

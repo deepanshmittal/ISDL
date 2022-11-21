@@ -38,6 +38,14 @@ def entry_details(request):
 
 
 @login_required(login_url='login')
+def entry_details_next(request):
+    if getRole(request) == "MGIM":
+        return render(request, 'MGIM-entry-details-next.html')
+    else:
+        return redirect('login')
+
+
+@login_required(login_url='login')
 def exit_details(request):
     if getRole(request) == "MGIM":
         items = Item.objects.filter(Quantity__gt=0)
