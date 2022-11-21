@@ -46,6 +46,7 @@
     <div class="scroll">
         <table>
             <tr>
+                <th>Serial No.</th>
                 <th>Registration Number</th>
                 <th>Quotee</th>
                 <th>Amount</th>
@@ -55,10 +56,11 @@
             </tr>
             {% for quotation in quotations %}
                 <tr>
+                    <th></th>
                     <td>{{ quotation.Bill.RegNo }}</td>
                     <td>{{ quotation.Quotee }}</td>
                     <td>{{ quotation.Amount }}</td>
-                    <td ><a class="link" target="_blank" href={{ quotation.QuotationLink }}>Link</a></td>
+                    <td><a class="link" target="_blank" href={{ quotation.QuotationLink }}>Link</a></td>
                     <td>{{ quotation.Status }}</td>
                     <td>{{ quotation.Bill.Date }}</td>
                 </tr>

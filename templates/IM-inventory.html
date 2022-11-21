@@ -54,6 +54,7 @@
     <div class="scroll">
         <table>
             <tr>
+                <th>Serial No.</th>
                 <th>Bluiding ID</th>
                 <th>Floor</th>
                 <th>Room No.</th>
@@ -62,6 +63,7 @@
             </tr>
             {% for inventory_obj in inventory %}
                 <tr>
+                    <td></td>
                     <td>{{ inventory_obj.BuildingID }}</td>
                     <td>{{ inventory_obj.Floor }}</td>
                     <td>{{ inventory_obj.Room }}</td>
