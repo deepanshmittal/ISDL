@@ -2,24 +2,30 @@
   0% {
     transform: rotateX(0);
   }
+
   to {
     transform: rotateX(-180deg);
   }
 }
+
 @keyframes fade-in {
   0% {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 body {
   margin: 0;
   line-height: normal;
   background: linear-gradient(to right, #35a68c 0%, #6271c0 100%);
   overflow-x: hidden;
+
 }
+
 .rectangle-div7 {
   position: absolute;
   top: 224px;
@@ -30,15 +36,18 @@ body {
   width: 1359px;
   height: 317px;
 }
+
 .quotations-listed-div {
   position: absolute;
   top: 130px;
   left: 40px;
   color: var(--color-black);
+  font-size: 28px;
   display: inline-block;
   width: 282px;
   height: 39px;
 }
+
 .rectangle-div8,
 .rectangle-div9 {
   position: absolute;
@@ -46,20 +55,24 @@ body {
   background-color: var(--color-gray-200);
   height: 66px;
 }
+
 .rectangle-div8 {
   left: 0;
   width: 2028px;
 }
+
 .rectangle-div9 {
-  left: calc(50% - 720px);
-  width: 1440px;
+  /* left: calc(50% - 720px); */
+  width: 100%;
 }
+
 .purchase-officer-div {
   position: absolute;
   top: 11px;
   right: 0;
   display: inline-block;
 }
+
 .ellipse-icon1 {
   position: absolute;
   top: 7px;
@@ -67,6 +80,7 @@ body {
   width: 35px;
   height: 35px;
 }
+
 .login-1-icon1,
 .user-det-div1,
 .user-div1 {
@@ -75,20 +89,24 @@ body {
   width: 49px;
   height: 49px;
 }
+
 .login-1-icon1 {
   right: 0;
   object-fit: cover;
 }
+
 .user-det-div1,
 .user-div1 {
   right: 137px;
 }
+
 .user-det-div1 {
   top: 9px;
   right: 44px;
   width: 186px;
   font-size: var(--font-size-sm);
 }
+
 .lnmiit-inventory-management-sy1 {
   position: absolute;
   top: 9px;
@@ -96,14 +114,16 @@ body {
   font-size: var(--font-size-3xl);
   display: inline-block;
 }
+
 .rectangle-div10 {
   position: absolute;
   top: 52px;
-  left: calc(50% - 1230px);
+  /* left: calc(50% - 1230px); */
   background-color: var(--color-gray-200);
-  width: 2414px;
+  width: 100%;
   height: 66px;
 }
+
 .rectangle-div11 {
   position: absolute;
   top: 0;
@@ -112,6 +132,7 @@ body {
   width: 120px;
   height: 40px;
 }
+
 .log-out-div1 {
   position: absolute;
   top: 6px;
@@ -123,6 +144,7 @@ body {
   text-align: center;
   display: inline-block;
 }
+
 .logout-1-icon1 {
   position: absolute;
   top: 6px;
@@ -131,6 +153,7 @@ body {
   height: 27px;
   object-fit: cover;
 }
+
 .logout-button1 {
   cursor: pointer;
   border: 0;
@@ -142,6 +165,7 @@ body {
   width: 120px;
   height: 40px;
 }
+
 .rectangle-div12 {
   position: absolute;
   top: 0;
@@ -151,9 +175,7 @@ body {
   height: 52px;
   opacity: 1;
 }
-.rectangle-div12.animate {
-  animation: 1s ease 0s 1 normal forwards flip-horizontal-bottom;
-}
+
 .request-history-div {
   position: absolute;
   top: 14px;
@@ -167,11 +189,13 @@ body {
   width: 168px;
   height: 21px;
 }
+
 .button-3,
 .rectangle-div13 {
   position: absolute;
   height: 52px;
 }
+
 .button-3 {
   cursor: pointer;
   border: 0;
@@ -182,9 +206,11 @@ body {
   width: 205px;
   opacity: 0;
 }
+
 .button-3.animate {
   animation: 1s ease 0s 1 normal forwards fade-in;
 }
+
 .rectangle-div13 {
   top: 0;
   left: 0;
@@ -192,9 +218,7 @@ body {
   width: 206px;
   opacity: 1;
 }
-.rectangle-div13.animate {
-  animation: 1s ease 0s 1 normal forwards flip-horizontal-bottom;
-}
+
 .pending-requests-div {
   position: absolute;
   top: 14px;
@@ -208,6 +232,7 @@ body {
   width: 186px;
   height: 22px;
 }
+
 .button-1 {
   cursor: pointer;
   border: 0;
@@ -220,10 +245,12 @@ body {
   height: 52px;
   opacity: 0;
 }
+
 .button-1.animate,
 .button-2.animate {
   animation: 1s ease 0s 1 normal forwards fade-in;
 }
+
 .inventory-location-div {
   position: absolute;
   top: 14px;
@@ -237,6 +264,7 @@ body {
   width: 183px;
   height: 21px;
 }
+
 .button-2 {
   cursor: pointer;
   border: 0;
@@ -249,33 +277,62 @@ body {
   height: 52px;
   opacity: 0;
 }
+
 .line-div1 {
   position: absolute;
   top: 65.5px;
-  left: -165.5px;
+  /* left: -165.5px; */
   border-top: 1px solid var(--color-white);
   box-sizing: border-box;
-  width: 1771px;
+  width: 100%;
   height: 1px;
 }
-.approve-button-input,
+
 .rectangle-div15 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-lg);
+  background-color: var(--color-gray-100);
+  width: 360px;
+  height: 111px;
+}
+
+.approve-div {
+  position: absolute;
+  top: 26px;
+  left: 95px;
+  font-size: var(--font-size-6xl);
+  font-weight: 500;
+  font-family: var(--font-poppins);
+  color: var(--color-black);
+  text-align: center;
+  display: inline-block;
+}
+
+.approve-button,
+.rectangle-div16 {
   position: absolute;
   width: 360px;
   height: 111px;
 }
-.approve-button-input {
+
+.approve-button {
+  cursor: pointer;
   border: 0;
+  padding: 0;
   background-color: transparent;
-  top: 660px;
-  left: 157px;
+  top: 580px;
+  left: 167px;
 }
-.rectangle-div15 {
+
+.rectangle-div16 {
   top: 0;
   right: 0;
   border-radius: var(--br-lg);
   background-color: var(--color-gray-100);
 }
+
 .reject-div {
   position: absolute;
   top: 26px;
@@ -287,25 +344,93 @@ body {
   text-align: center;
   display: inline-block;
 }
+
 .reject-button {
   cursor: pointer;
   border: 0;
   padding: 0;
   background-color: transparent;
   position: absolute;
-  top: 660px;
-  right: 159px;
+  top: 580px;
+  left: 735px;
   width: 360px;
   height: 111px;
 }
+
 .pending-req-cont-div {
   position: relative;
   /* background-color: var(--color-white); */
   width: 100%;
-  height: 1024px;
+  height: 520px;
   /* overflow: hidden; */
   text-align: left;
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-sm);
   color: var(--color-white);
   font-family: var(--font-poppins);
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  width: 96%;
+  color: black;
+}
+
+tr {
+  background-color: rgba(217, 217, 217, 0.49);
+  /* font-weight: 100; */
+}
+
+th,
+td {
+
+  text-align: left;
+  padding: 10px;
+  /* border: 1px solid #363636; */
+  /* font-weight: 100; */
+}
+
+tr>th {
+  border-bottom: 1px solid #363636;
+}
+
+tr>th:last-child {
+  border-right: none;
+}
+
+th {
+  border-right: 1px solid #363636;
+}
+
+th:first-child {
+  border-top-left-radius: 10px;
+}
+
+th:last-child {
+  border-top-right-radius: 10px;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+tr td {
+  border-right: 1px solid #363636;
+}
+
+tr td:last-child {
+  border-right: none;
+}
+
+
+.scroll {
+  position: relative;
+  top: 150px;
+  height: 420px;
+  overflow-y: auto;
 }
