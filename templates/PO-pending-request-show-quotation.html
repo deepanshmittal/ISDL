@@ -6,7 +6,7 @@
     <title></title>
     <meta name="description" content="" />
 
-    <link rel="stylesheet" href="./global1.css" />
+    <link rel="stylesheet" href="./global2.css" />
     <link rel="stylesheet" href="./PendingReqCont.css" />
 
     <link
@@ -21,7 +21,7 @@
   <body>
     <div class="pending-req-cont-div">
       <!-- <div class="bg-div"></div> -->
-      <div class="rectangle-div7"></div>
+      <!-- <div class="rectangle-div7"></div> -->
       <div class="quotations-listed-div">Quotations Listed</div>
       <div class="rectangle-div8"></div>
       <div class="rectangle-div9"></div>
@@ -58,62 +58,34 @@
         <div class="inventory-location-div">Inventory Location</div>
       </button>
       <div class="line-div1"></div>
-      <input class="approve-button-input" type="text" /><button
-        class="reject-button"
-        id="rejectButton"
-      >
+      <button class="approve-button">
         <div class="rectangle-div15"></div>
+        <div class="approve-div">Approve</div></button
+      ><button class="reject-button" id="rejectButton">
+        <div class="rectangle-div16"></div>
         <div class="reject-div">Reject</div>
       </button>
+      <div class="scroll">
+        <table class="auto-index">
+            <tr>
+                <th></th>
+                <th>Quotee Name</th>
+                <th>Amount</th>
+                <th>Quotation Link</th>
+            </tr>
+            {% for ItemCode,Quantity in itemList.items %}
+                <tr>
+                    <td></td>
+                    <td>{{ ItemCode }}</td>
+                    <td>{{ Quantity }}</td>
+                    <td>{{ Link }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
     </div>
 
-    <script>
-      var logOutButton = document.getElementById("logOutButton");
-      if (logOutButton) {
-        logOutButton.addEventListener("click", function (e) {
-          window.location.href = "./Home.html";
-        });
-      }
-      
-      var button3 = document.getElementById("button3");
-      if (button3) {
-        button3.addEventListener("click", function (e) {
-          window.location.href = "./RequestHistory.html";
-        });
-      }
-      
-      var button1 = document.getElementById("button1");
-      if (button1) {
-        button1.addEventListener("click", function (e) {
-          window.location.href = "./PendingReqCont.html";
-        });
-      }
-      
-      var rejectButton = document.getElementById("rejectButton");
-      if (rejectButton) {
-        rejectButton.addEventListener("click", function () {
-          //TODO: Clear the selection or reload
-        });
-      }
-      var scrollAnimElements = document.querySelectorAll("[data-animate-on-scroll]");
-      var observer = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting || entry.intersectionRatio > 0) {
-              const targetElement = entry.target;
-              targetElement.classList.add("animate");
-              observer.unobserve(targetElement);
-            }
-          }
-        },
-        {
-          threshold: 0.15,
-        }
-      );
-      
-      for (let i = 0; i < scrollAnimElements.length; i++) {
-        observer.observe(scrollAnimElements[i]);
-      }
-      </script>
+    <script src={% static 'js/PO-pending-request-show-quotation.js' %}></script>
+
   </body>
 </html>
