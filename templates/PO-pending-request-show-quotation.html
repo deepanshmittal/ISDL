@@ -44,7 +44,7 @@
         <div class="rectangle-div13" data-animate-on-scroll></div>
         <div class="pending-requests-div">Pending Requests</div>
     </button>
-    <button class="button-2" data-animate-on-scroll>
+    <button class="button-2" id="inventoryLocating" data-animate-on-scroll>
         <div class="rectangle-div12" data-animate-on-scroll></div>
         <div class="inventory-location-div">Inventory Location</div>
     </button>
@@ -65,12 +65,12 @@
                 <th>Amount</th>
                 <th>Quotation Link</th>
             </tr>
-            {% for ItemCode,Quantity in itemList.items %}
+            {% for quotation in quotations %}
                 <tr>
                     <td></td>
-                    <td>{{ ItemCode }}</td>
-                    <td>{{ Quantity }}</td>
-                    <td>{{ Link }}</td>
+                    <td>{{ quotation.Quotee }}</td>
+                    <td>{{ quotation.Amount }}</td>
+                    <td><a href="{{ quotation.QuotationLink }}">Link</a></td>
                 </tr>
             {% endfor %}
         </table>

@@ -25,21 +25,20 @@ def inventory(request):
 @login_required(login_url='login')
 def pending_request(request):
     if getRole(request) == "PO":
-        quotations = Quotation.objects.filter(Status='Pending').order_by('Bill')
+        quotations = Quotation.objects.filter(Status='Pending').order_by('Bill__Date').distinct()
         if request.method == 'POST':
             RegNo = request.POST.get('RegNo')
-            quotations = Quotation.objects.filter(Bill=Bill.objects.get(RegNo=RegNo), Status='Pending')
-            return render(request, 'PO-pending-request-show-quotation.html', {'quotations': quotations, 'RegNo': RegNo})
+            return redirect(f'./show-quotation/{RegNo}')
         return render(request, 'PO-pending-request.html', {'quotations': quotations})
     else:
         return redirect('login')
 
 
 @login_required(login_url='login')
-def pending_request_show_quotation(request):
+def pending_request_show_quotation(request, RegNo):
     if getRole(request) == "PO":
-        if request.method == "POST":
-            RegNo = request.POST.get('RegNo')
+        quotations = Quotation.objects.filter(Bill=Bill.objects.get(RegNo=RegNo), Status='Pending')
+        return render(request, 'PO-pending-request-show-quotation.html', {'quotations': quotations})
     else:
         return redirect('login')
 

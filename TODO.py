@@ -6,9 +6,9 @@ Complete
   request-purchase
   add-inventory
   register-item
+  request-purchase-quotation
 
 TODO
-  request-purchase-quotation        Backend-linking
 
 ____________________________________
 PO
@@ -29,5 +29,4 @@ Complete
 
 TODO
     entry-details-next
-
 """

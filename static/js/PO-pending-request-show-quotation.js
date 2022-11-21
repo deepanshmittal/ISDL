@@ -1,31 +1,31 @@
-
 var logOutButton = document.getElementById("logOutButton");
 if (logOutButton) {
     logOutButton.addEventListener("click", function (e) {
-        window.location.href = "./Home.html";
+        window.location.href = "http://localhost:8000/logout/";
     });
 }
 
 var button3 = document.getElementById("button3");
 if (button3) {
     button3.addEventListener("click", function (e) {
-        window.location.href = "./RequestHistory.html";
+        window.location.href = "http://localhost:8000/purchase-officer/request-history/";
     });
 }
 
 var button1 = document.getElementById("button1");
 if (button1) {
     button1.addEventListener("click", function (e) {
-        window.location.href = "./PendingReqCont.html";
+        window.location.href = "http://localhost:8000/purchase-officer/pending-request/";
     });
 }
 
-var rejectButton = document.getElementById("rejectButton");
-if (rejectButton) {
-    rejectButton.addEventListener("click", function () {
-        //TODO: Clear the selection or reload
+var inventoryLocating = document.getElementById("inventoryLocating");
+if (inventoryLocating) {
+    inventoryLocating.addEventListener("click", function (e) {
+        window.location.href = "http://localhost:8000/purchase-officer/inventory/";
     });
 }
+
 var scrollAnimElements = document.querySelectorAll("[data-animate-on-scroll]");
 var observer = new IntersectionObserver(
     (entries) => {
