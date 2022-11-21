@@ -315,8 +315,13 @@ body {
 
 .show-quotations-div {
     position: absolute;
-    top: 575px;
+    top: 547px;
     left: 165px;
+    border-radius: var(--br-lg);
+    background-color: var(--color-gray-100);
+    border-color: transparent;
+    width: 360px;
+    height: 111px;
     font-size: var(--font-size-3xl);
     font-weight: 500;
     font-family: var(--font-poppins);
@@ -435,7 +440,7 @@ td {
 
 .scroll {
     position: relative;
-    top: 100px;
+    top: 140px;
     height: 300px;
     overflow-y: auto;
 }

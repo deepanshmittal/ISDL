@@ -23,18 +23,31 @@ def inventory(request):
 
 
 @login_required(login_url='login')
-def request_history(request):
+def pending_request(request):
     if getRole(request) == "PO":
-        quotations = Quotation.objects.filter(Status__in=['Approved', 'Declined']).order_by('-Bill')
-        return render(request, 'PO-request-history.html', {'quotations': quotations})
+        quotations = Quotation.objects.filter(Status='Pending').order_by('Bill')
+        if request.method == 'POST':
+            RegNo = request.POST.get('RegNo')
+            quotations = Quotation.objects.filter(Bill=Bill.objects.get(RegNo=RegNo), Status='Pending')
+            return render(request, 'PO-pending-request-show-quotation.html', {'quotations': quotations, 'RegNo': RegNo})
+        return render(request, 'PO-pending-request.html', {'quotations': quotations})
     else:
         return redirect('login')
 
 
+# @login_required(login_url='login')
+# def pending_request_show_quotation(request):
+#     if getRole(request) == "PO":
+#         if request.method == "POST":
+#             RegNo = request.POST.get('RegNo')
+#     else:
+#         return redirect('login')
+
+
 @login_required(login_url='login')
-def pending_request(request):
+def request_history(request):
     if getRole(request) == "PO":
-        quotations = Quotation.objects.filter(Status='Pending')
-        return render(request, 'PO-pending-request.html', {'quotations': quotations})
+        quotations = Quotation.objects.filter(Status__in=['Approved', 'Declined']).order_by('-Bill')
+        return render(request, 'PO-request-history.html', {'quotations': quotations})
     else:
         return redirect('login')

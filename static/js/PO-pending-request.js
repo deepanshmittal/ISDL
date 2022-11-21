@@ -65,3 +65,7 @@ function ClearRadio(RadioName) {
     for (var i = 0; i < ele.length; i++)
         ele[i].checked = false;
 }
+
+function getRegNo() {
+    document.querySelector('#RegNo').value = document.querySelector('input[type="radio"]:checked').value;
+}

@@ -51,104 +51,40 @@
         <div class="inventory-location-div">Inventory Location</div>
     </button>
     <div class="line-div1"></div>
-    <button class="delete-button-div" id="deleteButtonContainer">
-        <div class="rectangle-div15"></div>
-        <div class="show-quotations-div">Show Quotations</div>
-    </button>
-    <button class="delete-button" id="deleteButton" onclick="ClearRadio('optradio');">
-        <div class="rectangle-div16"></div>
-        <div class="clear-div">Clear</div>
-    </button>
-
-    <div class="scroll">
-        <table>
-
-            <tr>
-                <th></th>
-                <th>Registration Number</th>
-                <th>Created On</th>
-            </tr>
-            {% for quotation in quotations %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="delete-button-div" id="deleteButtonContainer">
+            {# <div class="rectangle-div15"></div>#}
+            <input type="submit" class="show-quotations-div" value="Show Quotations">
+        </div>
+        <button class="delete-button" id="deleteButton" onclick="ClearRadio('optradio');">
+            <div class="rectangle-div16"></div>
+            <div class="clear-div">Clear</div>
+        </button>
+        <div class="scroll">
+            <input type="number" id="RegNo" name="RegNo" hidden>
+            <table>
                 <tr>
-                    <td><input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
-                        <label class="form-check-label" for="radio2"></label>
-                    <td>{{ quotation.Bill.RegNo }}</td>
-                    <td>{{ quotation.Bill.Date }}</td>
+                    <th></th>
+                    <th>Registration Number</th>
+                    <th>Created On</th>
                 </tr>
-            {% endfor %}
+                {% for quotation in quotations %}
+                    <tr>
+                        <td>
+                            <input onclick="getRegNo()" type="radio" class="form-check-input" id="radio2"
+                                   name="optradio" value="{{ quotation.Bill.RegNo }}" required>
+                            <label class="form-check-label" for="radio2"></label>
+                        <td>{{ quotation.Bill.RegNo }}</td>
+                        <td>{{ quotation.Bill.Date }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </form>
+</div>
 
-        </table>
-    </div>
-</div>
-</div>
 <script src={% static 'js/PO-pending-request.js' %}></script>
-
-
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-table {
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-    width: 100%;
-    color: black;
-    counter-reset: Serial;
-
-}
-
-tr {
-    background-color: rgba(217, 217, 217, 0.49);
-    /* font-weight: 100; */
-}
-
-th,
-td {
-
-    text-align: left;
-    padding: 10px;
-    /*border: 1px solid #363636;*/
-    /*font-weight: 100;*/
-}
-
-th:first-child {
-    border-top-left-radius: 15px;
-}
-
-th:last-child {
-    border-top-right-radius: 15px;
-}
-
-tr:last-child td:first-child {
-    border-bottom-left-radius: 15px;
-}
-
-tr:last-child td:last-child {
-    border-bottom-right-radius: 15px;
-}
-
-tr td:first-child:before {
-    counter-increment: Serial; /* Increment the Serial counter */
-    content: "" counter(Serial); /* Display the counter */
-}
-
-.scroll {
-    /*border: 0px solid black;*/
-    border-radius: 15px;
-    position: relative;
-    top: 180px;
-    margin: auto;
-    width: 96%;
-    height: 300px;
-    overflow-y: auto;
-}
