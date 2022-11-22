@@ -27,7 +27,7 @@ def inventory(request):
 @login_required(login_url='login')
 def pending_request(request):
     if getRole(request) == "PO":
-        quotations = Quotation.objects.filter(Status='Pending').order_by('Bill__Date').distinct()
+        quotations = Quotation.objects.filter(Status='Pending').order_by().distinct('Bill')
         if request.method == 'POST':
             RegNo = request.POST.get('RegNo')
             return redirect(f'./show-quotation/{RegNo}')
@@ -48,8 +48,7 @@ def pending_request_show_quotation(request, RegNo):
                         for quotation in quotations:
                             if quotation.QuotationLink == QuotationLink:
                                 quotation.Status = 'Approved'
-                                purchase = Purchase(Bill=Bill.objects.get(RegNo=RegNo), Quotation=quotation)
-                                purchase.save()
+                                Purchase.objects.create(Bill=Bill.objects.get(RegNo=RegNo), Quotation=quotation).save()
                             else:
                                 quotation.Status = 'Declined'
                             quotation.save()
