@@ -48,27 +48,48 @@
         <div class="rectangle-div13" data-animate-on-scroll></div>
         <div class="inventory-location-div">Inventory Location</div>
     </button>
-    <div class="rectangle-div14"></div>
-    <div class="item-code-div">Item_Code</div>
-    <div class="quantity-ordered-div">
-        <p class="quantity-p">Quantity</p>
-        <p class="ordered-p">Ordered</p>
-    </div>
-    <div class="quantity-delivered-div">
-        <p class="quantity-p">Quantity</p>
-        <p class="ordered-p">Delivered</p>
-    </div>
+    <!-- <div class="rectangle-div14"></div> -->
+    <!-- <div class="item-code-div">Item_Code</div> -->
+    <!-- <div class="quantity-ordered-div"> -->
+      <!-- <p class="quantity-p">Quantity</p> -->
+      <!-- <p class="ordered-p">Ordered</p> -->
+    <!-- </div> -->
+    <!-- <div class="quantity-delivered-div"> -->
+      <!-- <p class="quantity-p">Quantity</p> -->
+      <!-- <p class="ordered-p">Delivered</p> -->
+    <!-- </div> -->
     <div class="line-div1"></div>
     <form class="group-form">
-        <button class="next-button">
-            <div class="rectangle-div15"></div>
-            <div class="finish-div">Finish</div>
-        </button>
-        <input class="rectangle-input" type="number" readonly/><input class="rectangle-input1" type="number"
-                                                                      min="{0}" required/>
+      <button class="next-button">
+        <div class="rectangle-div15"></div>
+        <div class="finish-div">Finish</div>
+      </button><input class="rectangle-input" type="number" readonly />
+      <!-- <input class="rectangle-input1" type="number" min="{0}" required /> -->
     </form>
     <div class="registeration-no-div">Registeration No.:</div>
-</div>
+    <div class="scroll">
+      <table class="auto-index">
+          <tr>
+              <th>Item Code</th>
+              <th>Quantity Ordered</th>
+              <th>Quantity Delivered</th>
+          </tr>
+          {% for ItemCode,Quantity in itemList.items %}
+          <tr>
+              <td>{{ ItemCode}}</td>
+              <td>{{ Quantity }}</td>
+              <td><input class="rectangle-input1" type="number" min="0" placeholder="00" required=""></td>
+          </tr>
+          {% endfor %}
+          <tr>
+            <td>F01125</td>
+            <td>23</td>
+            <td><input class="rectangle-input1" type="number" min="0" required=""></td>
+        </tr>
+
+      </table>
+  </div>
+  </div>
 
 <script src={% static 'js/MGIM-entry-details-next.js' %}></script>
 

@@ -438,7 +438,7 @@ tr td:last-child {
 
 .scroll {
     position: relative;
-    top: 174px;
+    top: 175px;
     height: 375px;
     overflow-y: auto;
 }
