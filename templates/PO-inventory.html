@@ -48,6 +48,7 @@
     <div class="scroll">
         <table>
             <tr>
+                <th>Serial No.</th>
                 <th>Bluiding ID</th>
                 <th>Floor</th>
                 <th>Room No.</th>
@@ -57,6 +58,7 @@
             </tr>
             {% for inventory_obj in inventory %}
                 <tr>
+                    <td></td>
                     <td>{{ inventory_obj.BuildingID }}</td>
                     <td>{{ inventory_obj.Floor }}</td>
                     <td>{{ inventory_obj.Room }}</td>
@@ -69,21 +71,20 @@
     </div>
 
     <div class="form">
-        <form method="POST" class="search">
-            {% csrf_token %}
+        <form method="GET" class="search" action="{% url 'PO-inventory' %}?">
             <!-- <img class="search_icon" alt="" src="{% static 'img/search.png' %}"/> -->
             <div class="search">
-                <input class="Search-box" type="text" placeholder="Search" required name="Search" maxlength="128">
+                <input class="Search-box" type="search" placeholder="Search" required name="q" maxlength="128">
             </div>
-            <div class = "dropdown">
-            <select class="options" name="languages" id="lang">
-                <option value="building_id">Building ID</option>
-                <option value="Floor">Floor</option>
-                <option value="Room">Room No.</option>
-                <option value="ItemName">Item Name</option>
-                <option value="ItenCode">Item Code</option>
-                <option value="ItemNumber">Item Number</option>
-            </select>
+            <div class="dropdown">
+                <select class="options" name="option" id="lang">
+                    <option value="BuildingID">Building ID</option>
+                    <option value="Floor">Floor</option>
+                    <option value="Room">Room No.</option>
+                    <option value="Name">Item Name</option>
+                    <option value="ItemCode">Item Code</option>
+                    <option value="ItemNumber">Item Number</option>
+                </select>
             </div>
         </form>
     </div>
