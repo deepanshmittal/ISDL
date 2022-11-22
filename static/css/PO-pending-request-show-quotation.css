@@ -288,24 +288,27 @@ body {
     height: 1px;
 }
 
-.rectangle-div15 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: var(--br-lg);
-    background-color: var(--color-gray-100);
-    width: 360px;
-    height: 111px;
-}
+/*.rectangle-div15 {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    border-radius: var(--br-lg);*/
+/*    background-color: var(--color-gray-100);*/
+/*    width: 360px;*/
+/*    height: 111px;*/
+/*}*/
 
 .approve-div {
     position: absolute;
-    top: 26px;
-    left: 95px;
     font-size: var(--font-size-6xl);
     font-weight: 500;
     font-family: var(--font-poppins);
     color: var(--color-black);
+    border-radius: var(--br-lg);
+    background-color: var(--color-gray-100);
+    border-color: transparent;
+    width: 360px;
+    height: 111px;
     text-align: center;
     display: inline-block;
 }
@@ -326,21 +329,26 @@ body {
     left: 167px;
 }
 
-.rectangle-div16 {
-    top: 0;
-    right: 0;
-    border-radius: var(--br-lg);
-    background-color: var(--color-gray-100);
-}
+/*.rectangle-div16 {*/
+/*    top: 0;*/
+/*    right: 0;*/
+/*    width: 360px;*/
+/*    height: 111px;*/
+/*    border-radius: var(--br-lg);*/
+/*    background-color: var(--color-gray-100);*/
+/*}*/
 
 .reject-div {
     position: absolute;
-    top: 26px;
-    right: 117px;
     font-size: var(--font-size-6xl);
     font-weight: 500;
     font-family: var(--font-poppins);
     color: var(--color-black);
+    width: 360px;
+    height: 111px;
+    border-radius: var(--br-lg);
+    background-color: var(--color-gray-100);
+    border-color: transparent;
     text-align: center;
     display: inline-block;
 }
@@ -430,7 +438,11 @@ tr td:last-child {
 
 .scroll {
     position: relative;
-    top: 175px;
-    height: 420px;
+    top: 174px;
+    height: 375px;
     overflow-y: auto;
+}
+
+.link {
+    color: #000000;
 }

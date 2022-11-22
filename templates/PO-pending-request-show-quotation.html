@@ -49,32 +49,39 @@
         <div class="inventory-location-div">Inventory Location</div>
     </button>
     <div class="line-div1"></div>
-    <button class="approve-button">
-        <div class="rectangle-div15"></div>
-        <div class="approve-div">Approve</div>
-    </button>
-    <button class="reject-button" id="rejectButton">
-        <div class="rectangle-div16"></div>
-        <div class="reject-div">Reject</div>
-    </button>
-    <div class="scroll">
-        <table class="auto-index">
-            <tr>
-                <th></th>
-                <th>Quotee Name</th>
-                <th>Amount</th>
-                <th>Quotation Link</th>
-            </tr>
-            {% for quotation in quotations %}
+
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="scroll">
+            <table class="auto-index">
                 <tr>
-                    <td></td>
-                    <td>{{ quotation.Quotee }}</td>
-                    <td>{{ quotation.Amount }}</td>
-                    <td><a href="{{ quotation.QuotationLink }}">Link</a></td>
+                    <th></th>
+                    <th>Quotee Name</th>
+                    <th>Amount</th>
+                    <th>Quotation Link</th>
                 </tr>
-            {% endfor %}
-        </table>
-    </div>
+                {% for quotation in quotations %}
+                    <tr>
+                        <td><input onclick="getQuotation()" type="radio" class="form-check-input" id="radio2"
+                                   name="optradio" value="{{ quotation.QuotationLink }}" required></td>
+                        <td>{{ quotation.Quotee }}</td>
+                        <td>{{ quotation.Amount }}</td>
+                        <td><a class="link" target="_blank" href={{ quotation.QuotationLink }}>Link</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <input type="text" hidden name="QuotationLink" id="QuotationLink">
+        <div class="reject-button" id="rejectButton">
+            {#            <div class="rectangle-div16"></div>#}
+            <input type="submit" name="Reject" value="Reject" class="reject-div">
+        </div>
+        <div class="approve-button">
+            {#            <div class="rectangle-div15"></div>#}
+            <input type="submit" name="Accept" value="Accept" class="approve-div">
+        </div>
+    </form>
 </div>
 
 <script src={% static 'js/PO-pending-request-show-quotation.js' %}></script>

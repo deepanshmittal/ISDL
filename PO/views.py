@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 from django.shortcuts import render, redirect
 
 from myapp.models import *
@@ -37,7 +38,27 @@ def pending_request(request):
 @login_required(login_url='login')
 def pending_request_show_quotation(request, RegNo):
     if getRole(request) == "PO":
-        quotations = Quotation.objects.filter(Bill=Bill.objects.get(RegNo=RegNo), Status='Pending')
+        quotations = Quotation.objects.filter(Bill__RegNo=RegNo, Status='Pending')
+        if request.method == 'POST':
+            QuotationLink = request.POST.get('QuotationLink')
+            if request.POST.get('Accept'):
+                try:
+                    with transaction.atomic():
+                        for quotation in quotations:
+                            if quotation.QuotationLink == QuotationLink:
+                                quotation.Status = 'Approved'
+                                purchase = Purchase(Bill=Bill.objects.get(RegNo=RegNo), Quotation=quotation)
+                                purchase.save()
+                            else:
+                                quotation.Status = 'Declined'
+                            quotation.save()
+                    return redirect(f'./show-quotation/{RegNo}')
+                except:
+                    pass
+            elif request.POST.get('Reject'):
+                quotation = quotations.get(QuotationLink=QuotationLink)
+                quotation.Status = 'Declined'
+                quotation.save()
         return render(request, 'PO-pending-request-show-quotation.html', {'quotations': quotations})
     else:
         return redirect('login')

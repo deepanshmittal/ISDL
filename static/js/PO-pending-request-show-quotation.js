@@ -45,3 +45,7 @@ var observer = new IntersectionObserver(
 for (let i = 0; i < scrollAnimElements.length; i++) {
     observer.observe(scrollAnimElements[i]);
 }
+
+function getQuotation() {
+    document.querySelector('#QuotationLink').value = document.querySelector('input[type="radio"]:checked').value;
+}
