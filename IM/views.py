@@ -44,10 +44,12 @@ def add_inventory(request):
                     inventory_obj.save()
                     item.Quantity -= 1
                     item.save()
-                    messages.success(request, "Successfully Added")
+                    CODE = f'LNM|{inventory_obj.BuildingID}|{inventory_obj.Floor}|{inventory_obj.Room}|{ItemCode}|{inventory_obj.ItemNumber}'
+                    # print(CODE)
+                    messages.success(request, f"Successfully Added: {CODE}")
                     return redirect('add-inventory')
             except:
-                messages.error(request, "Some Error Occured !")
+                messages.error(request, "Some Error Occurred !")
         return render(request, 'IM-add-inventory.html', {'items': items})
     else:
         return redirect('login')

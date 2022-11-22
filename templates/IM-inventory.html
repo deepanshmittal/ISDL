@@ -1,79 +1,84 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="initial-scale=1, width=device-width"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
     <title>ISD Lab</title>
-    <meta name="description" content=""/>
-    <link rel="stylesheet" href="{% static 'css/global.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/IM-inventory.css' %}"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"/>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/IM-inventory.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
     <style>
     </style>
 </head>
+
 <body>
-<div class="invman-invloc-div">
-    <!-- <img class="bg-icon" alt="" src="public/bg.svg" /> -->
-    <div class="rectangle-div"></div>
-    <button class="items-button" id="itemsButton" data-animate-on-scroll>
-        <div class="rectangle-div1"></div>
-        <div class="items-div">Items</div>
-    </button>
-    <button class="inv-locating-button" data-animate-on-scroll id="inventoryLocating">
-        <div class="rectangle-div2"></div>
-        <div class="inventory-locating-div">Inventory Locating</div>
-    </button>
-    <button class="request-purchase-button" id="requestPurchaseButton" data-animate-on-scroll>
-        <div class="rectangle-div3" data-animate-on-scroll></div>
-        <div class="request-purchase-div">Request Purchase</div>
-    </button>
-    <button class="remove-inv-button" id="removeInvButton" data-animate-on-scroll>
-        <div class="rectangle-div4" data-animate-on-scroll></div>
-        <div class="remove-inventory-div">Remove Inventory</div>
-    </button>
-    <button class="add-inv-button" id="addInvButton" data-animate-on-scroll>
-        <div class="rectangle-div3" data-animate-on-scroll></div>
-        <div class="add-inventory-div">Add Inventory</div>
-    </button>
-    <div class="user-det-div">
-        <div class="inventory-manager-div">Inventory Manager</div>
-        <div class="user-div">
-            <img class="ellipse-icon" alt="" src="{% static 'img/login-bg.svg' %}"/>
-            <img class="login-1-icon" alt="" src="{% static 'img/login.png' %}"/>
+    <div class="invman-invloc-div">
+        <!-- <img class="bg-icon" alt="" src="public/bg.svg" /> -->
+        <div class="rectangle-div"></div>
+        <button class="items-button" id="itemsButton" data-animate-on-scroll>
+            <div class="rectangle-div1"></div>
+            <div class="items-div">Items</div>
+        </button>
+        <button class="inv-locating-button" data-animate-on-scroll id="inventoryLocating">
+            <div class="rectangle-div2"></div>
+            <div class="inventory-locating-div">Inventory Locating</div>
+        </button>
+        <button class="request-purchase-button" id="requestPurchaseButton" data-animate-on-scroll>
+            <div class="rectangle-div3" data-animate-on-scroll></div>
+            <div class="request-purchase-div">Request Purchase</div>
+        </button>
+        <button class="remove-inv-button" id="removeInvButton" data-animate-on-scroll>
+            <div class="rectangle-div4" data-animate-on-scroll></div>
+            <div class="remove-inventory-div">Remove Inventory</div>
+        </button>
+        <button class="add-inv-button" id="addInvButton" data-animate-on-scroll>
+            <div class="rectangle-div3" data-animate-on-scroll></div>
+            <div class="add-inventory-div">Add Inventory</div>
+        </button>
+        <div class="user-det-div">
+            <div class="inventory-manager-div">Inventory Manager</div>
+            <div class="user-div">
+                <img class="ellipse-icon" alt="" src="{% static 'img/login-bg.svg' %}" />
+                <img class="login-1-icon" alt="" src="{% static 'img/login.png' %}" />
+            </div>
         </div>
-    </div>
-    <b class="lnmiit-inventory-management-sy">LNMIIT Inventory Management System</b>
-    <div class="line-div"></div>
-    <button class="logout-button" id="logOutButton">
-        <div class="rectangle-div6"></div>
-        <div class="log-out-div">Log Out</div>
-        <img class="logout-1-icon" alt="" src="{% static 'img/logout.png' %}"/>
-    </button>
-    <div class="scroll">
-        <table>
-            <tr>
-                <th>Serial No.</th>
-                <th>Bluiding ID</th>
-                <th>Floor</th>
-                <th>Room No.</th>
-                <th>Item Code</th>
-                <th>Item No.</th>
-            </tr>
-            {% for inventory_obj in inventory %}
+        <b class="lnmiit-inventory-management-sy">LNMIIT Inventory Management System</b>
+        <div class="line-div"></div>
+        <button class="logout-button" id="logOutButton">
+            <div class="rectangle-div6"></div>
+            <div class="log-out-div">Log Out</div>
+            <img class="logout-1-icon" alt="" src="{% static 'img/logout.png' %}" />
+        </button>
+        <div class="scroll">
+            <table>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Bluiding ID</th>
+                    <th>Floor</th>
+                    <th>Room No.</th>
+                    <th>Item Name</th>
+                    <th>Item Code</th>
+                    <th>Item No.</th>
+                </tr>
+                {% for inventory_obj in inventory %}
                 <tr>
                     <td></td>
                     <td>{{ inventory_obj.BuildingID }}</td>
                     <td>{{ inventory_obj.Floor }}</td>
                     <td>{{ inventory_obj.Room }}</td>
+                    <td>{{ inventory_obj.ItemCode.Name }}</td>
                     <td>{{ inventory_obj.ItemCode.ItemCode }}</td>
                     <td>{{ inventory_obj.ItemNumber }}</td>
                 </tr>
-            {% endfor %}
-        </table>
+                {% endfor %}
+            </table>
+        </div>
     </div>
-</div>
-<script src={% static 'js/IM-inventory.js' %}></script>
+    <script src={% static 'js/IM-inventory.js' %}></script>
 </body>
+
 </html>

@@ -51,6 +51,7 @@
                 <th>Bluiding ID</th>
                 <th>Floor</th>
                 <th>Room No.</th>
+                <th>Item Name</th>
                 <th>Item Code</th>
                 <th>Item No.</th>
             </tr>
@@ -59,6 +60,7 @@
                     <td>{{ inventory_obj.BuildingID }}</td>
                     <td>{{ inventory_obj.Floor }}</td>
                     <td>{{ inventory_obj.Room }}</td>
+                    <td>{{ inventory_obj.ItemCode.Name }}</td>
                     <td>{{ inventory_obj.ItemCode.ItemCode }}</td>
                     <td>{{ inventory_obj.ItemNumber }}</td>
                 </tr>

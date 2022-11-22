@@ -59,8 +59,8 @@
             </tr>
             {% for purchase_obj in purchase %}
                 <tr>
-                    <td><input onclick="getBill()" type="radio" id="radio_button"
-                               name="optradio" value={{ purchase_obj.Bill.RegNo }}></td>
+                    <td><input onclick="getBill()" type="radio" id="radio_button" name="optradio"
+                               value="{{ purchase_obj.Bill.RegNo }}" required></td>
                     <td>{{ purchase_obj.Bill.RegNo }}</td>
                     <td>{{ purchase_obj.Quotation.Quotee }}</td>
                     <td>{{ purchase_obj.Quotation.Amount }}</td>
