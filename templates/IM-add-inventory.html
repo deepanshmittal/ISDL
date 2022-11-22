@@ -86,13 +86,13 @@
     <form method="POST" class="group-form1">
         {% csrf_token %}
         <div class="item-code-div">Item Code:</div>
-        <div class="building-id-div">Building ID:</div>
+        <div class="building-id-div" >Building ID:</div>
         <div class="floor-div">Floor:</div>
         <div class="room-div">Room:</div>
-        <input class="rectangle-input5" type="text" id="ItemCode" name="ItemCode" readonly required/>
-        <input class="rectangle-input2" type="text" name="BuildingID" maxlength="8" required/>
-        <input class="rectangle-input3" type="number" name="Floor" min="0" max="10" required/>
-        <input class="rectangle-input4" type="text" name="Room" maxlength="8" required/>
+        <input class="rectangle-input5"  placeholder="F01125" type="text" id="ItemCode" name="ItemCode" readonly required/>
+        <input class="rectangle-input2"  placeholder="BH-2" type="text" name="BuildingID" maxlength="8" required/>
+        <input class="rectangle-input3"  placeholder="2" type="number" name="Floor" min="0" max="10" required/>
+        <input class="rectangle-input4"  placeholder="A-028" type="text" name="Room" maxlength="8" required/>
         <button class="submit-button1" id="submitButton">
             <div class="rectangle-div102"></div>
             <div class="submit-div">Submit</div>
