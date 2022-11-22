@@ -156,9 +156,9 @@ def request_purchase_quotations(request):
                 with transaction.atomic():
                     for quotation in Quotations.values():
                         print(quotation.values())
-                        if all(x is '' for x in quotation.values()):
+                        if all(x == '' for x in quotation.values()):
                             continue
-                        elif any(x is '' for x in quotation.values()):
+                        elif any(x == '' for x in quotation.values()):
                             raise Exception()
                         else:
                             Quotation(Bill=Bill.objects.get(RegNo=RegNo), QuotationLink=quotation['Link'],

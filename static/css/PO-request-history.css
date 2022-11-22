@@ -313,14 +313,14 @@ td {
 }
 
 .link {
-    color: #0c59c5;
+    color: #000000;
 }
 
-tr>th{
+tr > th {
     border-bottom: 1px solid #363636;
 }
 
-tr>th:last-child{
+tr > th:last-child {
     border-right: none;
 }
 
@@ -329,7 +329,7 @@ tr td:first-child:before {
     content: "" counter(Serial); /* Display the counter */
 }
 
-th{
+th {
     border-right: 1px solid #363636;
 }
 
@@ -349,13 +349,12 @@ tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
 }
 
-tr td{
+tr td {
     border-right: 1px solid #363636;
 }
 
 
-
-tr td:last-child{
+tr td:last-child {
     border-right: none;
 }
 

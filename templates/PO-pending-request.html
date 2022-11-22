@@ -83,7 +83,13 @@
         </div>
     </form>
 </div>
-
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <script>alert("{{ message }}")</script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
 <script src={% static 'js/PO-pending-request.js' %}></script>
 </body>
 

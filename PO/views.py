@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.shortcuts import render, redirect
@@ -52,13 +53,16 @@ def pending_request_show_quotation(request, RegNo):
                             else:
                                 quotation.Status = 'Declined'
                             quotation.save()
-                    return redirect(f'./show-quotation/{RegNo}')
+                    messages.success(request, 'Quotation approved')
+                    return redirect('pending-request')
                 except:
-                    pass
+                    # print("error")
+                    messages.error(request, "Some error Occurred !")
             elif request.POST.get('Reject'):
                 quotation = quotations.get(QuotationLink=QuotationLink)
                 quotation.Status = 'Declined'
                 quotation.save()
+            return redirect(f'/purchase-officer/pending-request/show-quotation/{RegNo}')
         return render(request, 'PO-pending-request-show-quotation.html', {'quotations': quotations})
     else:
         return redirect('login')
