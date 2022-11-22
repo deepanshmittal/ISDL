@@ -264,6 +264,7 @@ body {
     height: 23px;
 }
 
+
 .button-3 {
     cursor: pointer;
     border: 0;
@@ -352,8 +353,8 @@ body {
 
 .finish-div {
     position: absolute;
-    top: 26px;
-    left: 50px;
+    /* top: 26px;
+    left: 50px; */
     font-size: var(--font-size-6xl);
     font-weight: 500;
     border-radius: var(--br-lg);
@@ -373,8 +374,8 @@ body {
     padding: 0;
     background-color: transparent;
     position: absolute;
-    top: 390px;
-    left: 696px;
+    top: 255px;
+    left: 1100px;
     width: 360px;
     height: 111px;
 }
@@ -387,8 +388,8 @@ body {
 }
 
 .rectangle-input {
-    top: 185px;
-    left: 320px;
+    top: 145px;
+    left: -80px;
     font-size: 20px;
     border-radius: var(--br-sm);
     width: 343.87px;
@@ -407,8 +408,9 @@ table {
     margin-left: 40px;
     margin-right: auto;
     border-collapse: collapse;
-    width: 75%;
+    width: 65%;
     /* color: black; */
+    font-size: 18px;
     counter-reset: Serial;
 }
 
@@ -471,7 +473,7 @@ tr td:first-child:before {
 .scroll {
     position: relative;
     /* left: -250px; */
-    top: 225px;
+    top: 195px;
     height: 405px;
     /*margin-left: 40px;*/
     width: 100%;
@@ -487,8 +489,8 @@ tr td:first-child:before {
 }
 
 .registeration-no-div {
-    position: absolute;
-    top: 189px;
+    position: relative;
+    top: 150px;
     left: 52px;
     font-size: var(--font-size-2xl);
     display: inline-block;

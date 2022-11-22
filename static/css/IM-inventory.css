@@ -354,6 +354,7 @@ table {
     margin-right: auto;
     border-collapse: collapse;
     width: 96%;
+    font-size: 18px;
     color: black;
     counter-reset: Serial;
 }
