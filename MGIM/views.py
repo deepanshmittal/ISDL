@@ -31,16 +31,20 @@ def entry_details(request):
         purchase = Purchase.objects.filter(Status="Pending")
         if request.method == "POST":
             RegNo = request.POST.get('RegNo')
-
+            return redirect(f'/main-gate-inventory-manager/entry-details-next/{RegNo}')
         return render(request, 'MGIM-entry-details.html', {'purchase': purchase})
     else:
         return redirect('login')
 
 
 @login_required(login_url='login')
-def entry_details_next(request):
+def entry_details_next(request, RegNo):
     if getRole(request) == "MGIM":
-        return render(request, 'MGIM-entry-details-next.html')
+        itemList = ItemList.objects.filter(Bill__RegNo=RegNo)
+        if request.method == 'POST':
+            print(request.POST)
+            print(request.POST.get('Delivered_Quantity'))
+        return render(request, 'MGIM-entry-details-next.html', {'RegNo': RegNo, 'itemList': itemList})
     else:
         return redirect('login')
 

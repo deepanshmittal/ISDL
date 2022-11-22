@@ -13,12 +13,12 @@ TODO
 ____________________________________
 PO
 Complete
-  inventory
-  pending-request
-  request-history
+    inventory
+    pending-request
+    request-history
+    pending-request-show-quotation
 
 TODO
-    pending-request-show-quotation
 
 ____________________________________
 MGIM

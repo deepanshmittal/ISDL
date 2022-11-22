@@ -51,45 +51,54 @@
     <!-- <div class="rectangle-div14"></div> -->
     <!-- <div class="item-code-div">Item_Code</div> -->
     <!-- <div class="quantity-ordered-div"> -->
-      <!-- <p class="quantity-p">Quantity</p> -->
-      <!-- <p class="ordered-p">Ordered</p> -->
+    <!-- <p class="quantity-p">Quantity</p> -->
+    <!-- <p class="ordered-p">Ordered</p> -->
     <!-- </div> -->
     <!-- <div class="quantity-delivered-div"> -->
-      <!-- <p class="quantity-p">Quantity</p> -->
-      <!-- <p class="ordered-p">Delivered</p> -->
+    <!-- <p class="quantity-p">Quantity</p> -->
+    <!-- <p class="ordered-p">Delivered</p> -->
     <!-- </div> -->
     <div class="line-div1"></div>
-    <form class="group-form">
-      <button class="next-button">
-        <div class="rectangle-div15"></div>
-        <div class="finish-div">Finish</div>
-      </button><input class="rectangle-input" type="number" readonly />
-      <!-- <input class="rectangle-input1" type="number" min="{0}" required /> -->
-    </form>
-    <div class="registeration-no-div">Registeration No.:</div>
+    <div>
+        <div class="registeration-no-div">Registeration No.:</div>
+        <input class="rectangle-input" type="number" value="{{ RegNo }}" readonly/>
+    </div>
     <div class="scroll">
-      <table class="auto-index">
-          <tr>
-              <th>Item Code</th>
-              <th>Quantity Ordered</th>
-              <th>Quantity Delivered</th>
-          </tr>
-          {% for ItemCode,Quantity in itemList.items %}
-          <tr>
-              <td>{{ ItemCode}}</td>
-              <td>{{ Quantity }}</td>
-              <td><input class="rectangle-input1" type="number" min="0" placeholder="00" required=""></td>
-          </tr>
-          {% endfor %}
-          <tr>
-            <td>F01125</td>
-            <td>23</td>
-            <td><input class="rectangle-input1" type="number" min="0" required=""></td>
-        </tr>
+        <form class="group-form" method="POST">
+            {% csrf_token %}
+            <div class="next-button">
+                {#            <div class="rectangle-div15"></div>#}
+                <input type="submit" class="finish-div" value="Finish">
+            </div>
 
-      </table>
-  </div>
-  </div>
+            <div>
+                <table class="auto-index">
+                    <tr>
+                        <th></th>
+                        <th>Item Code</th>
+                        <th>Name</th>
+                        <th>Quantity Ordered</th>
+                        <th>Quantity Delivered</th>
+                    </tr>
+                    {% for item in itemList %}
+                        <tr>
+                            <td></td>
+                            <td>{{ item.ItemCode.ItemCode }}</td>
+                            <td>{{ item.ItemCode.Name }}</td>
+                            <td>{{ item.Quantity }}</td>
+                            <td>
+                                <input class="rectangle-input1" name="Delivered_Quantity" type="number" min="0"
+                                       max="{{ item.Quantity }}"
+                                       value="0" required>
+                                {#                        <input type="text" hidden>#}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
 
 <script src={% static 'js/MGIM-entry-details-next.js' %}></script>
 
