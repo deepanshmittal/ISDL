@@ -26,12 +26,6 @@ if (button3) {
     });
 }
 
-var nextButton = document.getElementById("nextButton");
-if (nextButton) {
-    nextButton.addEventListener("click", function (e) {
-        window.location.href = "http://localhost:8000/main-gate-inventory-manager/entry-details/";
-    });
-}
 var scrollAnimElements = document.querySelectorAll("[data-animate-on-scroll]");
 var observer = new IntersectionObserver(
     (entries) => {

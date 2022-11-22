@@ -2,6 +2,7 @@
     0% {
         transform: rotateX(0);
     }
+
     to {
         transform: rotateX(-180deg);
     }
@@ -11,6 +12,7 @@
     0% {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -383,6 +385,7 @@ body {
 .rectangle-input,
 .rectangle-input1 {
     border: 0;
+    padding-left: 10px;
     background-color: var(--color-gray-100);
     position: relative;
 }
@@ -399,6 +402,7 @@ body {
 .rectangle-input1 {
     /* top: 212px;
     left: 458px; */
+    font-size: 15px;
     border-radius: 6px;
     width: 106px;
     height: 33px;
@@ -427,11 +431,11 @@ td {
     /* font-weight: 100; */
 }
 
-tr > th {
+tr>th {
     border-bottom: 1px solid #363636;
 }
 
-tr > th:last-child {
+tr>th:last-child {
     border-right: none;
 }
 
@@ -466,8 +470,10 @@ tr td:last-child {
 }
 
 tr td:first-child:before {
-    counter-increment: Serial; /* Increment the Serial counter */
-    content: "" counter(Serial); /* Display the counter */
+    counter-increment: Serial;
+    /* Increment the Serial counter */
+    content: "" counter(Serial);
+    /* Display the counter */
 }
 
 .scroll {
@@ -509,4 +515,3 @@ tr td:first-child:before {
     color: var(--color-black);
     font-family: var(--font-poppins);
 }
-
