@@ -108,12 +108,14 @@ def request_purchase(request):
                 Quantity = request.POST.get('Quantity')
                 if not itemList:
                     itemList = '{}'
+
                 itemList = json.loads(itemList.replace("'", '"'))  # JSON, dictionary of python
                 try:
                     if Item.objects.get(ItemCode=ItemCode) and Quantity.isnumeric() and int(Quantity) > 0:
                         itemList[ItemCode] = itemList.get(ItemCode, 0) + int(Quantity)
                 except Item.DoesNotExist:
                     messages.error(request, "Item does not exist")
+
                 return render(request, 'IM-request-purchase.html', {'itemList': itemList})
             elif request.POST.get('Proceed'):
                 # print("proceed")
@@ -121,6 +123,7 @@ def request_purchase(request):
                 if not itemList or itemList == '{}':
                     messages.error(request, "No Items added to List")
                     return redirect('request-purchase')
+
                 itemList = json.loads(itemList.replace("'", '"'))
                 try:
                     with transaction.atomic():
@@ -135,6 +138,7 @@ def request_purchase(request):
                 except:
                     messages.error(request, "Some Error Occurred! Please Try Again")
                     return render(request, 'IM-request-purchase.html', {'itemList': itemList})
+
         return render(request, 'IM-request-purchase.html')
     else:
         return redirect('login')
@@ -165,12 +169,15 @@ def request_purchase_quotations(request):
                         else:
                             Quotation(Bill=Bill.objects.get(RegNo=RegNo), QuotationLink=quotation['Link'],
                                       Quotee=quotation['Quotee'], Amount=quotation['Amount']).save()
+
                 messages.success(request, "Quotations Successfully sent for Approval")
             except:
                 messages.error(request, "Incorrect Entries!")
                 messages.info(request, RegNo)
                 return redirect('request-purchase-quotations')
+
             return redirect('request-purchase')
+
         return render(request, 'IM-request-purchase-quotations.html')
     else:
         return redirect('login')

@@ -92,7 +92,8 @@ class Quotation(models.Model):
 
 
 class Purchase(models.Model):
-    Bill = models.OneToOneField(Bill, primary_key=True, on_delete=models.DO_NOTHING)
+    Bill = models.OneToOneField(
+        Bill, primary_key=True, on_delete=models.DO_NOTHING)
     # Pending, Complete
     Quotation = models.ForeignKey(Quotation, on_delete=models.DO_NOTHING)
     Status = models.CharField(max_length=16, default='Pending',
