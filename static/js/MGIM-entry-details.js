@@ -1,28 +1,28 @@
 var logOutButton = document.getElementById("logOutButton");
 if (logOutButton) {
     logOutButton.addEventListener("click", function (e) {
-        window.location.href = "http://localhost:8000/logout/";
+        window.location.href = "/logout/";
     });
 }
 
 var button2 = document.getElementById("button2");
 if (button2) {
     button2.addEventListener("click", function (e) {
-        window.location.href = "http://localhost:8000/main-gate-inventory-manager/exit-details/";
+        window.location.href = "/main-gate-inventory-manager/exit-details/";
     });
 }
 
 var button1 = document.getElementById("button1");
 if (button1) {
     button1.addEventListener("click", function (e) {
-        window.location.href = "http://localhost:8000/main-gate-inventory-manager/entry-details/";
+        window.location.href = "/main-gate-inventory-manager/entry-details/";
     });
 }
 
 var button3 = document.getElementById("button3");
 if (button3) {
     button3.addEventListener("click", function (e) {
-        window.location.href = "http://localhost:8000/main-gate-inventory-manager/inventory/";
+        window.location.href = "/main-gate-inventory-manager/inventory/";
     });
 }
 
