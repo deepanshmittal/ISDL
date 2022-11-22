@@ -349,13 +349,13 @@ body {
     font-family: var(--font-poppins);
 }
 
-.form{
+.form {
     position: absolute;
     top: 140px;
     right: 0px;
 }
 
-.search_icon{
+.search_icon {
     position: absolute;
     top: 0px;
     right: 120px;
@@ -364,27 +364,27 @@ body {
     object-fit: cover;
 }
 
-.Search-box{
+.Search-box {
     border-radius: 5px;
     background-color: #d9d9d9;
     /* font-size: 13px; */
     font-family: var(--font-poppins);
 }
 
-.options{
+.options {
     border-radius: 5px;
     background-color: #d9d9d9;
     font-family: var(--font-poppins);
     font-size: 15px;
 }
 
-.search{
+.search {
     position: absolute;
     top: 0px;
     right: 15px;
 }
 
-.dropdown{
+.dropdown {
     position: absolute;
     top: 0px;
     right: 195px;
@@ -458,7 +458,7 @@ tr td:first-child:before {
 
 .scroll {
     position: relative;
-    top: 190px;
-    height: 642px;
+    top: 185px;
+    height: 580px;
     overflow-y: auto;
 }

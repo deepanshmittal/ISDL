@@ -284,13 +284,13 @@ body {
     font-family: var(--font-poppins);
 }
 
-.form{
+.form {
     position: absolute;
     top: 140px;
     right: 0px;
 }
 
-.search_icon{
+.search_icon {
     position: absolute;
     top: 0px;
     right: 120px;
@@ -299,27 +299,27 @@ body {
     object-fit: cover;
 }
 
-.Search-box{
+.Search-box {
     border-radius: 5px;
     background-color: #d9d9d9;
     /* font-size: 13px; */
     font-family: var(--font-poppins);
 }
 
-.options{
+.options {
     border-radius: 5px;
     background-color: #d9d9d9;
     font-family: var(--font-poppins);
     font-size: 15px;
 }
 
-.search{
+.search {
     position: absolute;
     top: 0px;
     right: 15px;
 }
 
-.dropdown{
+.dropdown {
     position: absolute;
     top: 0px;
     right: 195px;
@@ -333,6 +333,7 @@ table {
     width: 96%;
     font-size: 18px;
     color: black;
+    counter-reset: Serial;
 }
 
 tr {
@@ -346,15 +347,15 @@ td {
     /* border: 1px solid #363636; */
 }
 
-tr>th{
+tr > th {
     border-bottom: 1px solid #363636;
 }
 
-tr>th:last-child{
+tr > th:last-child {
     border-right: none;
 }
 
-th{
+th {
     border-right: 1px solid #363636;
 }
 
@@ -374,17 +375,22 @@ tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
 }
 
-tr td{
+tr td {
     border-right: 1px solid #363636;
 }
 
-tr td:last-child{
+tr td:last-child {
     border-right: none;
 }
 
 .scroll {
     position: relative;
-    top: 190px;
-    height: 642px;
+    top: 185px;
+    height: 580px;
     overflow-y: auto;
+}
+
+tr td:first-child:before {
+    counter-increment: Serial; /* Increment the Serial counter */
+    content: "" counter(Serial); /* Display the counter */
 }

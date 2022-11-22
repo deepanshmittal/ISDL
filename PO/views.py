@@ -19,6 +19,24 @@ def getRole(request):
 def inventory(request):
     if getRole(request) == "PO":
         inventory = Inventory.objects.all()
+        q = request.GET.get('q') if request.GET.get('q') is not None else ''
+        print(q)
+        if q:
+            option = request.GET.get('option')
+            print(option)
+            if option == 'BuildingID':
+                inventory = inventory.filter(BuildingID=q)
+            elif option == 'Floor':
+                inventory = inventory.filter(Floor=int(q))
+            elif option == 'Room':
+                inventory = inventory.filter(Room=q)
+            elif option == 'ItemCode':
+                inventory = inventory.filter(ItemCode__ItemCode=q)
+            elif option == 'ItemNumber':
+                inventory = inventory.filter(ItemNumber=int(q))
+            elif option == 'Name':
+                inventory = inventory.filter(ItemCode__Name__icontains=q)
+
         return render(request, 'PO-inventory.html', {'inventory': inventory})
     else:
         return redirect('login')
@@ -27,7 +45,7 @@ def inventory(request):
 @login_required(login_url='login')
 def pending_request(request):
     if getRole(request) == "PO":
-        quotations = Quotation.objects.filter(Status='Pending').order_by('Bill__Date').distinct()
+        quotations = Quotation.objects.filter(Status='Pending').order_by().distinct('Bill')
         if request.method == 'POST':
             RegNo = request.POST.get('RegNo')
             return redirect(f'./show-quotation/{RegNo}')
@@ -48,8 +66,7 @@ def pending_request_show_quotation(request, RegNo):
                         for quotation in quotations:
                             if quotation.QuotationLink == QuotationLink:
                                 quotation.Status = 'Approved'
-                                purchase = Purchase(Bill=Bill.objects.get(RegNo=RegNo), Quotation=quotation)
-                                purchase.save()
+                                Purchase.objects.create(Bill=Bill.objects.get(RegNo=RegNo), Quotation=quotation).save()
                             else:
                                 quotation.Status = 'Declined'
                             quotation.save()
