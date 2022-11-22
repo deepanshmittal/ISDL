@@ -3,75 +3,73 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="initial-scale=1, width=device-width"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
     <title></title>
-    <meta name="description" content=""/>
+    <meta name="description" content="" />
 
-    <link rel="stylesheet" href="{% static 'css/global2.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/MGIM-entry-details-next.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/global2.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/MGIM-entry-details-next.css' %}" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
 </head>
 
 <body>
-<div class="entry-details-cont-div">
-    <div class="bg-div"></div>
-    <div class="rectangle-div7"></div>
-    <div class="rectangle-div8"></div>
-    <div class="user-det-div1">
-        <div class="frame-div">
-            <div class="purchase-officer-div">Main Gate Inv Manager</div>
-        </div>
-        <div class="user-div1">
-            <img class="ellipse-icon1" alt="" src="{% static 'img/login-bg.svg' %}"/>
-            <img class="login-1-icon1" alt="" src="{% static 'img/login.png' %}"/>
-        </div>
-    </div>
-    <b class="lnmiit-inventory-management-sy1">LNMIIT Inventory Management System</b>
-    <div class="rectangle-div9"></div>
-    <button class="logout-button1" id="logOutButton">
-        <div class="rectangle-div10"></div>
-        <div class="log-out-div1">Log Out</div>
-        <img class="logout-1-icon1" alt="" src="{% static 'img/logout.png' %}"/>
-    </button>
-    <button class="button-2" id="button2" data-animate-on-scroll>
-        <div class="rectangle-div11" data-animate-on-scroll></div>
-        <div class="exit-details-div">Exit Details</div>
-    </button>
-    <button class="button-1" id="button1" data-animate-on-scroll>
-        <div class="rectangle-div11" data-animate-on-scroll></div>
-        <div class="entry-details-div">Entry Details</div>
-    </button>
-    <button class="button-3" data-animate-on-scroll>
-        <div class="rectangle-div13" data-animate-on-scroll></div>
-        <div class="inventory-location-div">Inventory Location</div>
-    </button>
-    <!-- <div class="rectangle-div14"></div> -->
-    <!-- <div class="item-code-div">Item_Code</div> -->
-    <!-- <div class="quantity-ordered-div"> -->
-    <!-- <p class="quantity-p">Quantity</p> -->
-    <!-- <p class="ordered-p">Ordered</p> -->
-    <!-- </div> -->
-    <!-- <div class="quantity-delivered-div"> -->
-    <!-- <p class="quantity-p">Quantity</p> -->
-    <!-- <p class="ordered-p">Delivered</p> -->
-    <!-- </div> -->
-    <div class="line-div1"></div>
-    <div>
-        <div class="registeration-no-div">Registeration No.:</div>
-        <input class="rectangle-input" type="number" value="{{ RegNo }}" readonly/>
-    </div>
-    <div class="scroll">
-        <form class="group-form" method="POST">
-            {% csrf_token %}
-            <div class="next-button">
-                {#            <div class="rectangle-div15"></div>#}
-                <input type="submit" class="finish-div" value="Finish">
+    <div class="entry-details-cont-div">
+        <!-- <div class="bg-div"></div> -->
+        <div class="rectangle-div7"></div>
+        <div class="rectangle-div8"></div>
+        <div class="user-det-div1">
+            <div class="frame-div">
+                <div class="purchase-officer-div">Main Gate Inv Manager</div>
             </div>
-
-            <div>
+            <div class="user-div1">
+                <img class="ellipse-icon1" alt="" src="{% static 'img/login-bg.svg' %}" />
+                <img class="login-1-icon1" alt="" src="{% static 'img/login.png' %}" />
+            </div>
+        </div>
+        <b class="lnmiit-inventory-management-sy1">LNMIIT Inventory Management System</b>
+        <div class="rectangle-div9"></div>
+        <button class="logout-button1" id="logOutButton">
+            <div class="rectangle-div10"></div>
+            <div class="log-out-div1">Log Out</div>
+            <img class="logout-1-icon1" alt="" src="{% static 'img/logout.png' %}" />
+        </button>
+        <button class="button-2" id="button2" data-animate-on-scroll>
+            <div class="rectangle-div11" data-animate-on-scroll></div>
+            <div class="exit-details-div">Exit Details</div>
+        </button>
+        <button class="button-1" id="button1" data-animate-on-scroll>
+            <div class="rectangle-div11" data-animate-on-scroll></div>
+            <div class="entry-details-div">Entry Details</div>
+        </button>
+        <button class="button-3" id="inventoryLocating" data-animate-on-scroll>
+            <div class="rectangle-div13" data-animate-on-scroll></div>
+            <div class="inventory-location-div">Inventory Location</div>
+        </button>
+        <!-- <div class="rectangle-div14"></div> -->
+        <!-- <div class="item-code-div">Item_Code</div> -->
+        <!-- <div class="quantity-ordered-div"> -->
+        <!-- <p class="quantity-p">Quantity</p> -->
+        <!-- <p class="ordered-p">Ordered</p> -->
+        <!-- </div> -->
+        <!-- <div class="quantity-delivered-div"> -->
+        <!-- <p class="quantity-p">Quantity</p> -->
+        <!-- <p class="ordered-p">Delivered</p> -->
+        <!-- </div> -->
+        <div class="line-div1"></div>
+        <div>
+            <div class="registeration-no-div">Registeration No.:</div>
+            <input class="rectangle-input" type="number" value="{{ RegNo }}" readonly />
+        </div>
+        <div class="scroll">
+            <form class="group-form" method="POST">
+                {% csrf_token %}
+                <div class="next-button">
+                    {# <div class="rectangle-div15"></div>#}
+                    <input type="submit" class="finish-div" value="Finish">
+                </div>
                 <table class="auto-index">
                     <tr>
                         <th></th>
@@ -81,26 +79,31 @@
                         <th>Quantity Delivered</th>
                     </tr>
                     {% for item in itemList %}
-                        <tr>
-                            <td></td>
-                            <td>{{ item.ItemCode.ItemCode }}</td>
-                            <td>{{ item.ItemCode.Name }}</td>
-                            <td>{{ item.Quantity }}</td>
-                            <td>
-                                <input class="rectangle-input1" name="Delivered_Quantity" type="number" min="0"
-                                       max="{{ item.Quantity }}"
-                                       value="0" required>
-                                {#                        <input type="text" hidden>#}
-                            </td>
-                        </tr>
+                    {% if item.Quantity > 0 %}
+                    <tr>
+                        <td></td>
+                        <td>{{ item.ItemCode.ItemCode }}</td>
+                        <td>{{ item.ItemCode.Name }}</td>
+                        <td>{{ item.Quantity }}</td>
+                        <td>
+                            <input class="rectangle-input1" name="Delivered_Quantity" type="number" min="0"
+                                max="{{ item.Quantity }}" value="0" required>
+                        </td>
+                    </tr>
+                    {% endif %}
                     {% endfor %}
                 </table>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
-
-<script src={% static 'js/MGIM-entry-details-next.js' %}></script>
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags == 'error' or message.tags == 'success' %}
+    <script>alert("{{ message }}")</script>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    <script src={% static 'js/MGIM-entry-details-next.js' %}></script>
 
 </body>
 

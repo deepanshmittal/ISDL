@@ -40,10 +40,33 @@ def entry_details(request):
 @login_required(login_url='login')
 def entry_details_next(request, RegNo):
     if getRole(request) == "MGIM":
-        itemList = ItemList.objects.filter(Bill__RegNo=RegNo)
+        itemList = ItemList.objects.filter(Bill__RegNo=RegNo, Quantity__gt=0)
         if request.method == 'POST':
-            print(request.POST)
-            print(request.POST.get('Delivered_Quantity'))
+            Delivered_Quantity = list(map(int, dict(request.POST).get('Delivered_Quantity')))
+            try:
+                with transaction.atomic():
+                    cnt = 0
+                    print(itemList)
+                    for Quantity, item in zip(Delivered_Quantity, itemList):
+                        item.Quantity -= Quantity
+                        i = item.ItemCode
+                        i.Quantity += Quantity
+                        i.save()
+                        item.save()
+                        if item.Quantity == 0:
+                            cnt += 1
+                    print(cnt, len(itemList))
+                    if cnt == len(itemList):
+                        purchase = Purchase.objects.get(Bill__RegNo=RegNo)
+                        purchase.Status = 'Complete'
+                        purchase.save()
+                        messages.success(request, "Order Completely Delivered.")
+                        return redirect('entry-details')
+                    messages.success(request, "Records updated Successfully.")
+                    return redirect('entry-details')
+            except:
+                messages.error(request, "Some error occurred while updating the records.")
+                return redirect(f'/main-gate-inventory-manager/entry-details-next/{RegNo}')
         return render(request, 'MGIM-entry-details-next.html', {'RegNo': RegNo, 'itemList': itemList})
     else:
         return redirect('login')

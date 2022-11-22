@@ -1,28 +1,28 @@
 var logOutButton = document.getElementById("logOutButton");
 if (logOutButton) {
     logOutButton.addEventListener("click", function (e) {
-        window.location.href = "http://localhost:8000/logout/";
+        window.location.href = "/logout/";
     });
 }
 
 var button3 = document.getElementById("button3");
 if (button3) {
     button3.addEventListener("click", function (e) {
-        window.location.href = "http://localhost:8000/purchase-officer/request-history/";
+        window.location.href = "/purchase-officer/request-history/";
     });
 }
 
 var button1 = document.getElementById("button1");
 if (button1) {
     button1.addEventListener("click", function (e) {
-        window.location.href = "http://localhost:8000/purchase-officer/pending-request/";
+        window.location.href = "/purchase-officer/pending-request/";
     });
 }
 
 var inventoryLocating = document.getElementById("inventoryLocating");
 if (inventoryLocating) {
     inventoryLocating.addEventListener("click", function (e) {
-        window.location.href = "http://localhost:8000/purchase-officer/inventory/";
+        window.location.href = "/purchase-officer/inventory/";
     });
 }
 

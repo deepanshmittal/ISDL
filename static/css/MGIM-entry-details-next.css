@@ -2,6 +2,7 @@
     0% {
         transform: rotateX(0);
     }
+
     to {
         transform: rotateX(-180deg);
     }
@@ -11,6 +12,7 @@
     0% {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -264,6 +266,7 @@ body {
     height: 23px;
 }
 
+
 .button-3 {
     cursor: pointer;
     border: 0;
@@ -352,8 +355,8 @@ body {
 
 .finish-div {
     position: absolute;
-    top: 26px;
-    left: 50px;
+    /* top: 26px;
+    left: 50px; */
     font-size: var(--font-size-6xl);
     font-weight: 500;
     border-radius: var(--br-lg);
@@ -373,8 +376,8 @@ body {
     padding: 0;
     background-color: transparent;
     position: absolute;
-    top: 390px;
-    left: 696px;
+    top: 255px;
+    left: 1100px;
     width: 360px;
     height: 111px;
 }
@@ -382,13 +385,14 @@ body {
 .rectangle-input,
 .rectangle-input1 {
     border: 0;
+    padding-left: 10px;
     background-color: var(--color-gray-100);
     position: relative;
 }
 
 .rectangle-input {
-    top: 185px;
-    left: 320px;
+    top: 145px;
+    left: -80px;
     font-size: 20px;
     border-radius: var(--br-sm);
     width: 343.87px;
@@ -398,6 +402,7 @@ body {
 .rectangle-input1 {
     /* top: 212px;
     left: 458px; */
+    font-size: 15px;
     border-radius: 6px;
     width: 106px;
     height: 33px;
@@ -407,8 +412,9 @@ table {
     margin-left: 40px;
     margin-right: auto;
     border-collapse: collapse;
-    width: 75%;
+    width: 65%;
     /* color: black; */
+    font-size: 18px;
     counter-reset: Serial;
 }
 
@@ -425,11 +431,11 @@ td {
     /* font-weight: 100; */
 }
 
-tr > th {
+tr>th {
     border-bottom: 1px solid #363636;
 }
 
-tr > th:last-child {
+tr>th:last-child {
     border-right: none;
 }
 
@@ -464,14 +470,16 @@ tr td:last-child {
 }
 
 tr td:first-child:before {
-    counter-increment: Serial; /* Increment the Serial counter */
-    content: "" counter(Serial); /* Display the counter */
+    counter-increment: Serial;
+    /* Increment the Serial counter */
+    content: "" counter(Serial);
+    /* Display the counter */
 }
 
 .scroll {
     position: relative;
     /* left: -250px; */
-    top: 225px;
+    top: 195px;
     height: 405px;
     /*margin-left: 40px;*/
     width: 100%;
@@ -487,8 +495,8 @@ tr td:first-child:before {
 }
 
 .registeration-no-div {
-    position: absolute;
-    top: 189px;
+    position: relative;
+    top: 150px;
     left: 52px;
     font-size: var(--font-size-2xl);
     display: inline-block;
@@ -507,4 +515,3 @@ tr td:first-child:before {
     color: var(--color-black);
     font-family: var(--font-poppins);
 }
-

@@ -279,9 +279,52 @@ body {
     font-family: var(--font-poppins);
 }
 
+.form{
+    position: absolute;
+    top: 140px;
+    right: 0px;
+}
+
+.search_icon{
+    position: absolute;
+    top: 0px;
+    right: 120px;
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+}
+
+.Search-box{
+    border-radius: 5px;
+    background-color: #d9d9d9;
+    /* font-size: 13px; */
+    font-family: var(--font-poppins);
+}
+
+.options{
+    border-radius: 5px;
+    background-color: #d9d9d9;
+    font-family: var(--font-poppins);
+    font-size: 15px;
+}
+
+.search{
+    position: absolute;
+    top: 0px;
+    right: 15px;
+}
+
+.dropdown{
+    position: absolute;
+    top: 0px;
+    right: 195px;
+}
+
+
 table {
     margin-left: auto;
     margin-right: auto;
+    font-size: 18px;
     border-collapse: collapse;
     width: 96%;
     color: black;
@@ -337,12 +380,11 @@ tr td:last-child{
     border-right: none;
 }
 
-
 .scroll {
     position: relative;
     margin: auto;
     border-radius: 10px;
-    top: 140px;
+    top: 190px;
     height: 642px;
     overflow-y: auto;
 }

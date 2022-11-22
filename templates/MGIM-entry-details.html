@@ -3,82 +3,89 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="initial-scale=1, width=device-width"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
     <title></title>
-    <meta name="description" content=""/>
-    <link rel="stylesheet" href="{% static 'css/global1.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/MGIM-entry-details.css' %}"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"/>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="{% static 'css/global1.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/MGIM-entry-details.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
 </head>
 
 <body>
-<div class="entry-details-div1">
-    <!-- <div class="bg-div1"></div> -->
-    <div class="rectangle-div16"></div>
-    <div class="rectangle-div17"></div>
-    <div class="user-det-div2">
-        <div class="frame-div1">
-            <div class="purchase-officer-div1">Main Gate Inv Manager</div>
+    <div class="entry-details-div1">
+        <!-- <div class="bg-div1"></div> -->
+        <div class="rectangle-div16"></div>
+        <div class="rectangle-div17"></div>
+        <div class="user-det-div2">
+            <div class="frame-div1">
+                <div class="purchase-officer-div1">Main Gate Inv Manager</div>
+            </div>
+            <div class="user-div2">
+                <img class="ellipse-icon2" alt="" src="{% static 'img/login-bg.svg' %}" />
+                <img class="login-1-icon2" alt="" src="{% static 'img/login.png' %}" />
+            </div>
         </div>
-        <div class="user-div2">
-            <img class="ellipse-icon2" alt="" src="{% static 'img/login-bg.svg' %}"/>
-            <img class="login-1-icon2" alt="" src="{% static 'img/login.png' %}"/>
+        <b class="lnmiit-inventory-management-sy2">LNMIIT Inventory Management System</b>
+        <div class="rectangle-div18"></div>
+        <button class="logout-button2" id="logOutButton">
+            <div class="rectangle-div19"></div>
+            <div class="log-out-div2">Log Out</div>
+            <img class="logout-1-icon2" alt="" src="{% static 'img/logout.png' %}" />
+        </button>
+        <button class="button-21" id="button2" data-animate-on-scroll>
+            <div class="rectangle-div20" data-animate-on-scroll></div>
+            <div class="exit-details-div1">Exit Details</div>
+        </button>
+        <button class="button-11" id="button1" data-animate-on-scroll>
+            <div class="rectangle-div20" data-animate-on-scroll></div>
+            <div class="entry-details-div2">Entry Details</div>
+        </button>
+        <button class="button-31" id="button3" data-animate-on-scroll>
+            <div class="rectangle-div22" data-animate-on-scroll></div>
+            <div class="inventory-location-div1">Inventory Location</div>
+        </button>
+        <div class="rectangle-div23"></div>
+        <div class="pending-deliveries-div">Pending Deliveries</div>
+        <div class="line-div2"></div>
+        <div class="scroll">
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Registeration No.</th>
+                        <th>Quotee</th>
+                        <th>Amount</th>
+                        <th>Ordered On</th>
+                    </tr>
+                    {% for purchase_obj in purchase %}
+                    <tr>
+                        <td><input onclick="getBill()" type="radio" id="radio_button" name="optradio"
+                                value="{{ purchase_obj.Bill.RegNo }}" required></td>
+                        <td>{{ purchase_obj.Bill.RegNo }}</td>
+                        <td>{{ purchase_obj.Quotation.Quotee }}</td>
+                        <td>{{ purchase_obj.Quotation.Amount }}</td>
+                        <td>{{ purchase_obj.DateCreated }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <input type="text" name="RegNo" id="RegNo" hidden>
+                <div class="next-button1">
+                    <input class="rectangle-div24" type="submit" value="Next">
+                </div>
+            </form>
         </div>
     </div>
-    <b class="lnmiit-inventory-management-sy2">LNMIIT Inventory Management System</b>
-    <div class="rectangle-div18"></div>
-    <button class="logout-button2" id="logOutButton">
-        <div class="rectangle-div19"></div>
-        <div class="log-out-div2">Log Out</div>
-        <img class="logout-1-icon2" alt="" src="{% static 'img/logout.png' %}"/>
-    </button>
-    <button class="button-21" id="button2" data-animate-on-scroll>
-        <div class="rectangle-div20" data-animate-on-scroll></div>
-        <div class="exit-details-div1">Exit Details</div>
-    </button>
-    <button class="button-11" id="button1" data-animate-on-scroll>
-        <div class="rectangle-div20" data-animate-on-scroll></div>
-        <div class="entry-details-div2">Entry Details</div>
-    </button>
-    <button class="button-31" id="button3" data-animate-on-scroll>
-        <div class="rectangle-div22" data-animate-on-scroll></div>
-        <div class="inventory-location-div1">Inventory Location</div>
-    </button>
-    <div class="rectangle-div23"></div>
-    <div class="pending-deliveries-div">Pending Deliveries</div>
-    <div class="scroll">
-        <table>
-            <tr>
-                <th></th>
-                <th>Registeration No.</th>
-                <th>Quotee</th>
-                <th>Amount</th>
-                <th>Ordered On</th>
-            </tr>
-            {% for purchase_obj in purchase %}
-                <tr>
-                    <td><input onclick="getBill()" type="radio" id="radio_button"
-                               name="optradio" value={{ purchase_obj.Bill.RegNo }}></td>
-                    <td>{{ purchase_obj.Bill.RegNo }}</td>
-                    <td>{{ purchase_obj.Quotation.Quotee }}</td>
-                    <td>{{ purchase_obj.Quotation.Amount }}</td>
-                    <td>{{ purchase_obj.DateCreated }}</td>
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
-    <div class="line-div2"></div>
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="RegNo" id="RegNo" hidden>
-        <div class="next-button1">
-            <input class="rectangle-div24" type="submit" value="Next">
-        </div>
-    </form>
-</div>
-<script src={% static 'js/MGIM-entry-details.js' %}></script>
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags == 'success' %}
+    <script>alert("{{ message }}")</script>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    <script src={% static 'js/MGIM-entry-details.js' %}></script>
 </body>
 
 </html>
