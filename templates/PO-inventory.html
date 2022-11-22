@@ -67,6 +67,26 @@
             {% endfor %}
         </table>
     </div>
+
+    <div class="form">
+        <form method="POST" class="search">
+            <!-- <img class="search_icon" alt="" src="{% static 'img/search.png' %}"/> -->
+            <div class="search">
+                <input class="Search-box" type="text" placeholder="Search" required name="Search" maxlength="128">
+            </div>
+            <div class = "dropdown">
+            <select class="options" name="languages" id="lang">
+                <option value="building_id">Building ID</option>
+                <option value="Floor">Floor</option>
+                <option value="Room">Room No.</option>
+                <option value="ItemName">Item Name</option>
+                <option value="ItenCode">Item Code</option>
+                <option value="ItemNumber">Item Number</option>
+            </select>
+            </div>
+        </form>
+    </div>
+
 </div>
 <script src={% static 'js/PO-inventory.js' %}></script>
 </body>
