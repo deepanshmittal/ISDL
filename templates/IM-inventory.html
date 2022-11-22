@@ -79,6 +79,7 @@
         </div>
         <div class="form">
             <form method="POST" class="search">
+                {% csrf_token %}
                 <!-- <img class="search_icon" alt="" src="{% static 'img/search.png' %}"/> -->
                 <div class="search">
                     <input class="Search-box" type="text" placeholder="Search" required name="Search" maxlength="128">
