@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'myapp',
     'PO',
     'IM',
-    'MGIM'
+    'MGIM',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +52,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ISDL.urls'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://isdl-production.up.railway.app'
+]
 
 TEMPLATES = [
     {

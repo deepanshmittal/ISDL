@@ -1,1 +1,1 @@
-web: gunicorn ISDL.wsgi --log-file -
+web: gunicorn 'ISDL.wsgi'
