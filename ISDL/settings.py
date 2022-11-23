@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
     'myapp',
     'PO',
     'IM',
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'ISDL.urls'
@@ -134,5 +136,6 @@ STATICFILES_DIRS = [
     # BASE_DIR, "static"
 ]
 
+STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 LOGIN_REDIRECT_URL = '/login'
 LOGIN_URL = '/login/'
