@@ -1,3 +1,4 @@
+# MGIM 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
@@ -19,7 +20,24 @@ def getRole(request):
 def inventory(request):
     if getRole(request) == "MGIM":
         inventory = Inventory.objects.all()
-        # print(len(inventory))
+        q = request.GET.get('q') if request.GET.get('q') is not None else ''
+        print(q)
+        if q:
+            option = request.GET.get('option')
+            print(option)
+            if option == 'BuildingID':
+                inventory = inventory.filter(BuildingID=q)
+            elif option == 'Floor':
+                inventory = inventory.filter(Floor=int(q))
+            elif option == 'Room':
+                inventory = inventory.filter(Room=q)
+            elif option == 'ItemCode':
+                inventory = inventory.filter(ItemCode__ItemCode=q)
+            elif option == 'ItemNumber':
+                inventory = inventory.filter(ItemNumber=int(q))
+            elif option == 'Name':
+                inventory = inventory.filter(ItemCode__Name__icontains=q)
+
         return render(request, 'MGIM-inventory.html', {'inventory': inventory})
     else:
         return redirect('login')
