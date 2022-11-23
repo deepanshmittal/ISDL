@@ -12,6 +12,4 @@ class Command(BaseCommand):
         pass
 
     def handle(self, *args, **options):
-        df = pd.read_csv('item.csv')
-        for ItemCode,ItemName,Quantity in zip(df.ItemCode, df.ItemName, df.Quantity):
-            Item.create(ItemCode=ItemCode,ItemName=ItemName,Quantity=int(Quantity)).save
+        pass
