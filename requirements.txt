@@ -24,3 +24,4 @@ urllib3==1.26.12
 virtualenv==20.16.7
 virtualenvwrapper-win==1.2.7
 whitenoise==6.2.0
+dj-static==0.0.6
