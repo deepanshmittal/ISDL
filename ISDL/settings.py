@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-e6s_f*te!@_%8m%kj0!al4g64!hy5+5o73)tfqd8!98@sc)wn+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -82,13 +82,15 @@ WSGI_APPLICATION = 'ISDL.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        # 'ENGINE': 'django.db.backends.postgresql',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
         # 'NAME': 'db_ISDL',
-        # 'USER': 'postgres',
-        # 'PASSWORD': 'admin',
-        # 'HOST': 'localhost'
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'nxtr1L9GZm9QylwTMpX1',
+        'HOST': 'containers-us-west-118.railway.app',
+        'PORT':'6698',
     }
 }
 
