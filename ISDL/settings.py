@@ -90,7 +90,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'lw9vXqH3aZJUA0jvwbaO',
         'HOST': 'containers-us-west-118.railway.app',
-        'PORT':'6698',
+        'PORT': '6698',
     }
 }
 
@@ -138,6 +138,6 @@ STATICFILES_DIRS = [
     # BASE_DIR, "static"
 ]
 
-STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 LOGIN_REDIRECT_URL = '/login'
 LOGIN_URL = '/login/'
